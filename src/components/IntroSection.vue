@@ -14,10 +14,10 @@ import { defineComponent, ref, onMounted } from "vue";
 export default defineComponent ({
   setup() {
     const texts = ["RESUME-", "FRONTEND-", "SKILL-"];
-    const animatedText = ref([]);
+    const animatedText = ref<string[]>([]);
     const animationDelay = 100; // 각 글자의 애니메이션 딜레이 (ms)
 
-    const animateText = async (text) => {
+    const animateText = async (text: string) => {
       animatedText.value = []; // 초기화
       for (const char of text) {
         animatedText.value.push(char); //한글자씩 추가
