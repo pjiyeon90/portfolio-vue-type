@@ -158,7 +158,6 @@ header{
         //   width: 0; // longline 숨기기
         //  }
         span{
-          
           top:30px;
           &:nth-child(1) {
             transform: rotate(45deg) translate(0px, 0px); // X 모양
@@ -176,7 +175,7 @@ header{
         &::after{
         display: block;
         transform: scale(100);
-        transition: 1.3s;
+        transition: .3s;
         }
       }
     }

@@ -35,7 +35,7 @@
         ],
         "project_description": {
           "overview": "본 프로젝트는 한화해양생물연구센터 사이트를 리뉴얼한 것으로 해양생물에 대한 정보나 연구 자료, 구조 치료에 대한 정보를 얻을 수 있는 사이트입니다. 상업적으로 만든 사이트가 아닌 만큼 관심도가 낮아 오랫동안 방치, 노후화되고 옛스러운 디자인에 고착되어있어 리뉴얼을 결정하였습니다.정보 전달의 목적이지만 사용자가 사용하기 쉽고 정보를 한눈에 볼 수 있도록 디자인 방향성을 잡고 리뉴얼을 진행하였습니다.",
-          "key_features": [
+          "features": [
             "반응형 웹 디자인: _common.scss에서 반응형 변수를 사용하여 기기 유형에 맞춰 화면 크기 최적화.",
             "사이드 네비게이션을 통해 각 섹션으로 이동할 수 있도록 idx 값을 활용.",
             "해양 생물 연구 센터 사이트의 정보는 페이지별로 유형이 나누어져 있으며 JSON으로 처리.",
@@ -43,45 +43,62 @@
             "연구 자료를 검색할 수 있는 기능을 제공하며, 입력한 값에 맞는 데이터를 필터링하고 출력.",
             "클릭한 탭에 맞는 리스트를 data-num 속성을 사용해 동적으로 표시."
           ],
-          "team_contribution": {
-            "title": "팀내 기여도",
-            "done_page": "(메인 페이지 / 서브 : 구조치료ㆍ실적)"
+          "individual": [
+            {
+              "title": "header 부분",
+              "todo":[
+              "idx 값이 0이 아닐 경우 배경색을 추가하여 가독성을 높임.",
+              "스크롤 시, 헤더는 HeaderVisible = false로 설정되고, 스크롤 업 시 HeaderVisible = true로 설정.",
+              "768px 이하의 화면 크기에서는 모바일 모드로 변경되며, 네비게이션 메뉴의 토글 기능 작동."
+              ]
           },
-          "header_functionality": [
-            "idx 값이 0이 아닐 경우 배경색을 추가하여 가독성을 높임.",
-            "스크롤 시, 헤더는 HeaderVisible = false로 설정되고, 스크롤 업 시 HeaderVisible = true로 설정.",
-            "768px 이하의 화면 크기에서는 모바일 모드로 변경되며, 네비게이션 메뉴의 토글 기능 작동."
-          ],
-          "aside_navigation": [
-            "인디케이터를 클릭하면 해당 섹션으로 이동하고, active 클래스를 추가하여 transform: translateY로 이동.",
-            "마우스 휠 기능을 이용해 섹션 간 이동하며, t_device 값에 따라 휠 기능을 활성화/비활성화."
-          ],
-          "tab_function": [
-            "탭을 클릭할 때, 해당 탭의 데이터를 로컬 스토리지에 저장하고 서브 페이지에서 이를 불러와 표시.",
-            "fetch를 이용해 JSON 데이터를 로드하고, 텍스트 항목은 elp에, 사진 항목은 elFigure에 출력."
-          ],
-          "kakao_map_api": {
-            "description": "카카오맵 API를 사용하여 Aqua Planet 등 장소를 검색할 수 있는 기능을 제공. 검색 결과는 최대 5개로 제한하고, 각 결과에 마커를 생성.",
-            "problem": "검색 결과의 정보 박스가 맵을 가려서 스크롤 시 맵을 제대로 볼 수 없는 문제 발생. 이를 해결하기 위해 transformX 값을 사용해 정보 박스를 숨기고, 아이콘 클릭 시에만 확장되도록 개선."
+          {
+            "title": "aside navigation 부분",
+            "todo": [
+              "인디케이터를 클릭하면 해당 섹션으로 이동하고, active 클래스를 추가하여 transform: translateY로 이동.",
+              "마우스 휠 기능을 이용해 섹션 간 이동하며, t_device 값에 따라 휠 기능을 활성화/비활성화."
+            ]
+          },
+          {
+            "title": "탭 기능",
+            "todo":
+              [
+              "탭을 클릭할 때, 해당 탭의 데이터를 로컬 스토리지에 저장하고 서브 페이지에서 이를 불러와 표시.",
+              "fetch를 이용해 JSON 데이터를 로드하고, 텍스트 항목은 elp에, 사진 항목은 elFigure에 출력."
+            ]
+          },
+          {
+            "title": "카카오 지도 API 사용 및 수정",
+            "todo":
+            [
+              "카카오에서 제공하는 맵 API를 이용, 검색창 input의 value값을 아쿠아플라넷으로 설정하고 검색창은 display: none 처리",
+              "무수한 검색 값이 출력되어 ea = 5로 출력 값을 한정시키고 마커와 리스트 항목이 5개까지만 생성되도록 for문 설정",
+              "검색 결과 목록창이 자꾸 지도 마커를 가려 마커 호버 기능을 사용할 수 없어 클릭 이벤트를 사용하여 목록창을 접거나 펼칠 수 있게 기능 추가"
+            ]
           }
+        ]
         },
-        "troubleshooting": {
-          "mouse_wheel": {
+        "troubleshooting": [
+        {
+            "title": "마우스 휠",
             "problem": "마우스가 없는 모바일, 태블릿 기기에서 휠 기능을 비활성화하지 않아 여러 가지 문제가 발생.",
             "solution": "휠 기능을 사용하려면 position: fixed 스타일을 사용해야 하지만, 이를 적용하면 메인 영역이 고정되어 '떠다니는' 현상이 발생. 이를 해결하기 위해 푸터를 메인 영역 안에 포함시켜 휠 기능과 푸터가 정상적으로 작동하도록 수정."
-          },
-          "kakao_map": {
-            "problem": "맵에서 검색 결과의 정보 박스가 화면을 가려 맵 스크롤에 방해가 됨.",
+        },
+        {
+            "title":"카카오 지도 API 및 검색 기능" ,
+            "problem": "맵에서 검색 결과의 정보 박스가 화면을 가려 맵 스크롤에 방해되는 문제 발생.",
             "solution": "transformX를 사용해 정보 박스를 숨기고, 아이콘 클릭 시에만 확장되도록 개선하여 맵을 스크롤할 때 정보 박스가 화면을 가리지 않도록 수정."
-          },
-          "logo": {
-            "photo": ["ocean_logo.svg"]
+               
+          }
+        ],
+        "logo": {
+            "photo": ["ocean_logo.svg", "ocean_favicon.png"]
           },
           "figma": {
             "scene": ["ocean_logo.svg"]
-          }
-
-        }
+          }, 
+          "github_url":"https://github.com/pjiyeon90/Project-B-team",
+          "site_url":"https://pjiyeon90.github.io/Project-B-team/"
       },
       {
         "project_name": "SEOUL - W",
@@ -122,7 +139,7 @@
         ],
         "project_description": {
           "overview": "본 프로젝트는 공연예술통합전산망(KOPIS)의 오픈 API를 활용하여 서울에서 열리는 공연, 전시, 콘서트 등 다양한 문화 행사 정보를 실시간으로 확인할 수 있는 모바일 사이트(480PX)입니다. 서울 지역에서 열리는 문화 행사 정보만을 제공하기 위해 signgucode: 11을 사용하여 서울로 한정하였으며, 이번주 공연, 공연 예정, 장르별 공연을 각각의 섹션으로 구성하여 장르별 탭을 통해 사용자가 원하는 정보를 간편하고 쉽게 볼 수 있게 구성하였습니다.",
-          "key_features": [
+          "features": [
             "KOPIS(공연예술통합전산망) open API 활용",
             "이번주 공연, 공연 예정, 장르별 공연을 각각 Params로 구분하여 비동기 요청 처리 및 여러 요청을 동시에 처리하는 promise.all() 방식으로 로딩 시간 최적화",
             "카카오맵 API를 사용해 디테일 페이지의 장소 탭에서 공연장 위치 제공",
@@ -133,45 +150,107 @@
             "title": "팀내 기여도",
             "done_page": "(로그인)"
           },
-          "header_functionality": [
-            "NextAuth를 사용한 로그인 및 인증 처리",
-            "반복 사용되는 input을 component화하여 background 이미지 처리 및 유효성 검사 기능",
-            "Github, Google, NaverProvider를 이용해 간편 로그인 기능 구현",
-            "JWT 토큰을 세션에 저장하여 자동 로그인 상태 유지"
-          ],
-          "aside_navigation": [
-            "로그인 상태 유지 및 세션 정보 활용",
-            "마이페이지에서 회원 정보 수정 및 탈퇴 기능 제공"
-          ],
-          "tab_function": [
-            "중복 체크 및 이메일 형식 유효성 검사",
-            "회원가입 후 Firebase DB에 사용자 정보 저장 및 성공 후 리디렉션"
-          ],
-          "kakao_map_api": {
-            "description": "카카오맵 API를 사용하여 공연장 위치 정보를 제공. 공연 상세 페이지에서 해당 장소를 지도에 표시."
-          }
+          "header_functionality":{
+          "title": "NextAuth를 사용한 로그인 및 인증 처리(login.js / Logininput.js)",
+          "todo":  [
+            "input의 반복 사용성을 고려해 component화 하였고 input type별로 switch 구문을 이용해 background 이미지 처리",
+            "clearInput 변수를 이용해 x버튼 클릭시 setvalue 초기화, visble 변수를 이용해 숨긴 비밀번호 표시 기능 작업",
+            "NextAuth로 GithubProvider, GoogleProvider, NaverProvider 이용해 간편 로그인 진행 및 간편 로그인도 firebase에 DB 저장",
+            "JWT 토큰이 세션에 저장되어 자동 로그인 체크 박스 활성화하고 로그인시 세션에 accessToken을 추가하여 로그인 상태 유지",
+            "rememberME 변수로 체크 박스 선택한 상태를 반영하고 아이디 저장 체크 박스를 활성화하고 로그인시 이메일을 localStorage에 저장"
+          ]
         },
+          "join": {
+            "title": "Join.js",
+            "todo":  [
+              "이메일 형식 유효성 검사를 위해 정규식 사용, 이메일이 올바른 형식 일 경우 중복 체크 버튼 활성화",
+              "중복 체크 버튼 클릭시 Firebase에서 이메일 중복을 체크하고 중복시 setError 메세지 출력, 중복 아닐시 핑크색으로 버튼 활성화",
+              "비밀번호 input 2개가 서로 일치하는 지 검사 진행",
+              "필수 약관 2개 체크를 진행하지 않을 경우 또는 중복 체크 버튼 완료되지 않을 경우 회원가입 진행 불가",
+              "모든 유효성 검사 통과시 addDoc을 통해 Firebase의 member 컬렉션에 DB 저장",
+              "회원 가입 성공 후 모달창을 통해 성공적인 회원가입 메세지 띄우고 회원가입 완료시 router.push('/login')을 사용하여 로그인 페이지로 리디렉션"
+            ]
+          },
+            "mypage": {
+              "title": "mypage.js",
+              "todo":  [
+                "마이페이지는  session이 있을 경우 렌더링되며 session이 없을 경우 login페이지 출력",
+                "useSession 훅을 사용하여 현재 로그인된 사용자 세션 정보를 가져오고 session?.user?.name을 통해 사용자 이름 화면 출력",
+                "로그아웃 li 클릭시 로그아웃 하시겠습니까? 팝업이 뜨고 확인 버튼 클릭시 signOut을 호출하여 로그아웃 진행, 홈으로 리디렉션"
+              ]
+            },
+              "edit": {
+                "title": "edit.js",
+                "todo":  [
+                  "로그인한 사용자의 정보를 Firestore에서 불러오고 로그인 사용자 정보(이메일, 이름, 비밀번호, 전화번호 등)가 각 input에 로딩되며 이메일과 사용자 이름은 변경 불가능",
+                  "수정할 수있는 비밀번호와 핸드폰 번호를 입력 후 개인정보 체크박스를 활성화하면 수정 완료버튼이 핑크색으로 활성화",
+                  "비밀번호는 2개의 input이 일치하지 않으면 비밀번호가 일치하지 않다는 경고창 발생","input 값과 체크 박스 활성화시 수정 완료 버튼 핑크색으로 활성화되고 수정 완료 버튼 클릭시 updateDoc을 통해 firestore에 있는 사용자 정보 수정","데이터가 로딩중일 때는 Loading...이라는 메세지를 보여주고 수정 완료 후 홈 화면으로 리디렉션"
+                ]
+              },
+              "drop": {
+                "title": "dropout.js",
+                "todo":  [
+                  "계속 사용하기 버튼 클릭시 계속 사용할래? 팝업이 뜨며 yes클릭시 홈으로 이동, no클릭시 탈퇴 페이지 유지","isAgreed로 탈퇴 동의 체크 상태를 관리하며 동의 체크 후 handleDropout 함수가 실행",
+                  "회원 탈퇴 버튼 클릭시 탈퇴 팝업 뜨고 confirm 클릭시 사용자의 이메일을 이용해 firestore에서 해당 사용자의 데이터를 찾고 deleteDoc을 통해 해당 정보를 삭제"
+                ]
+              }
+            },
         "troubleshooting": {
           "social_login": {
             "problem": "소셜로 간편 로그인 후 마이페이지에서 회원 수정 클릭 시 '유저를 찾을 수 없습니다'라는 에러 발생",
-            "solution": "간편 로그인으로 들어오는 유저도 Firebase에 유저 정보가 없으면 자동으로 회원 가입 시켜 DB에 저장하고, 이를 기반으로 회원 수정 페이지에 값을 불러올 수 있도록 수정"
-          },
-          "inconsistent_data": {
-            "problem": "소셜 로그인 시 각 소셜별로 제공하는 데이터가 달라 회원 수정 시 불러오는 데이터가 일관되지 않는 문제 발생",
-            "solution": "이름을 주지 않는 경우 임의의 이름을 설정하고, 추후 사용자가 이름을 수정할 수 있도록 별도로 처리"
+            "solution": [
+              "간편 로그인으로 들어오는 유저도 Firebase에 유저 정보가 없으면 자동으로 회원 가입 시켜 DB에 저장하고, 이를 기반으로 회원 수정 페이지에 값을 불러올 수 있도록 수정","소셜 로그인 시 각 소셜별로 제공하는 데이터가 달라 회원 수정 시 불러오는 데이터가 일관되지 않는 문제 발생","이름을 주지 않는 경우 임의의 이름을 설정하고, 추후 사용자가 이름을 수정할 수 있도록 별도로 처리"
+            ]
           }
         },
         "logo": {
-          "photo": ["seoul_w_logo.svg"]
+          "photo": ["seoulw_logo.svg","seoulw_favicon.svg"]
         },
         "figma": {
-          "scene": ["seoul_w_logo.svg"]
-        }
+          "scene": ["seoulw_logo.svg"]
+        }, 
+        "github_url":"https://github.com/pjiyeon90/seoulw-pj",
+        "site_url":"https://seoulw-pj.vercel.app/"
       },
       {
         "project_name": "SAWING",
         "project_type": "반응형 웹",
         "project_thumnail": "sawing_thumnail.png",
+        "project_summary": "본 프로젝트는 TMDB API를 이용한 영화 사이트 정보 사이트로 반응형으로 만들었습니다.",
+        "development_period": {
+          "date": "2024.09.13(금) ~ 2024.9.26(목)",
+          "duration_weeks": 1
+        },
+        "team_composition": [
+          {
+            "name": "박지연",
+            "role": "디자인 및 메인 페이지, JSON 작업, 기타 API"
+          }
+        ],
+        "development_environment": [
+          "HTTP",
+          "SCSS",
+          "JAVASCRIPT",
+          "REACT",
+          "SWIPER"
+        ],
+        "project_description": {
+          "overview": "본 프로젝트는 공연예술통합전산망(KOPIS)의 오픈 API를 활용하여 서울에서 열리는 공연, 전시, 콘서트 등 다양한 문화 행사 정보를 실시간으로 확인할 수 있는 모바일 사이트(480PX)입니다. 서울 지역에서 열리는 문화 행사 정보만을 제공하기 위해 signgucode: 11을 사용하여 서울로 한정하였으며, 이번주 공연, 공연 예정, 장르별 공연을 각각의 섹션으로 구성하여 장르별 탭을 통해 사용자가 원하는 정보를 간편하고 쉽게 볼 수 있게 구성하였습니다.",
+          "features": [
+            "KOPIS(공연예술통합전산망) open API 활용",
+            "이번주 공연, 공연 예정, 장르별 공연을 각각 Params로 구분하여 비동기 요청 처리 및 여러 요청을 동시에 처리하는 promise.all() 방식으로 로딩 시간 최적화",
+            "카카오맵 API를 사용해 디테일 페이지의 장소 탭에서 공연장 위치 제공",
+            "자체 회원 가입 및 SNS로 간편 로그인하면 로그인한 정보 값을 Firebase에 DB로 저장",
+            "로그인 시 개인별 ID값을 이용해 리뷰 작성 및 북마크 등록/삭제 기능 제공"
+          ]
+        },
+        "github_url":"https://github.com/pjiyeon90/movieProject_sawing",
+        "site_url":"https://movie-project-sawing.vercel.app/"
+      },
+      {
+        "project_name": "NEWS",
+        "project_type": "모바일 APP",
+        "project_thumnail": "news_thumnail.png",
         "project_summary": "본 프로젝트는 TMDB API를 이용한 영화 사이트 정보 사이트로 반응형으로 만들었습니다.",
         "development_period": {
           "date": "2024.09.13(금) ~ 2024.9.26(목)",
@@ -200,41 +279,9 @@
           "SCSS",
           "JAVASCRIPT",
           "REACT"
-        ]
-      },
-      {
-        "project_name": "SAWING",
-        "project_type": "반응형 웹",
-        "project_thumnail": "sawing_thumnail.png",
-        "project_summary": "본 프로젝트는 TMDB API를 이용한 영화 사이트 정보 사이트로 반응형으로 만들었습니다.",
-        "development_period": {
-          "date": "2024.09.13(금) ~ 2024.9.26(목)",
-          "duration_weeks": 1
-        },
-        "team_composition": [
-          {
-            "name": "박지연",
-            "role": "디자인 및 메인 페이지, JSON 작업, 기타 API"
-          },
-          {
-            "name": "강민현",
-            "role": "서브 페이지, 기획 및 개발"
-          },
-          {
-            "name": "고유나",
-            "role": "서브 페이지 담당, 개발 및 리소스"
-          },
-          {
-            "name": "박민지",
-            "role": "서브 페이지 담당, JSON 작업 및 리소스"
-          }
         ],
-        "development_environment": [
-          "HTTP",
-          "SCSS",
-          "JAVASCRIPT",
-          "REACT"
-        ]
+        "github_url":"https://github.com/pjiyeon90/new-app-vue",
+        "site_url":"https://new-app-vue.vercel.app/"
       }
     ]
   }

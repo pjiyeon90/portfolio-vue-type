@@ -13,7 +13,7 @@ import { defineComponent, ref, onMounted } from "vue";
 
 export default defineComponent ({
   setup() {
-    const texts = ["RESUME-", "FRONTEND-", "SKILL-"];
+    const texts = ["RESUME-", "", "SKILL-"];
     const animatedText = ref<string[]>([]);
     const animationDelay = 100; // 각 글자의 애니메이션 딜레이 (ms)
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="list_item">
+    <div class="list_item" @click="$emit('parent',project)">
       <div class="list_body">
         <figure v-if="project.project_thumnail">
           <img :src="require(`../assets/${project.project_thumnail}`)" :alt="project.project_name">
@@ -16,7 +16,12 @@
             <ul>
                 <li>
                     <em>개발 환경</em>
-                    <span>{{project.development_environment}}</span>
+                    <div>
+                      <span v-for="(item,idx) in project.development_environment" :key="idx">
+                      / {{item}}
+                    </span>
+                    </div>
+                    
                 </li>
                 <li>
                     <em>개발 기간</em>
@@ -29,6 +34,7 @@
       <i>반응형 웹</i>
       </div>   
     </div>
+ 
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -48,13 +54,6 @@ export default defineComponent({
       required: true,  // 필수 prop으로 설정
     },
   }
-  // `msg`와 `project` prop을 받아서 사용
-  // msg!: string;
-  // project!: {
-  //   project_thumnail: string;
-  //   project_name: string;
-  //   project_description: { overview: string };
-  // };
 })
 </script>
 <style lang="scss">
@@ -96,15 +95,18 @@ export default defineComponent({
                  word-break: keep-all;
                  }
                  ul{
-                    li{
-                        em,span{
-                            display: inline-block;
-                        }
-                        em{ margin: 0 10px 10px 0;
+                    li{ display: flex;
+          
+                        em{ display: block;
+                            width:30%;
+                            // margin: 0 10px 10px 0;
                             border:1px solid var(--serve-color);
-                            padding: 0 10px;
+                            // padding: 0 10px;
                             border-radius: 99px;
                             font-style: normal;
+                        }
+                        div{
+                          width: 70%;
                         }
                     }
                  }
@@ -125,4 +127,6 @@ export default defineComponent({
             }
         }
     }
+ 
+ 
 </style>

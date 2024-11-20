@@ -38,13 +38,13 @@
       <span>|</span>
       <button class="slidebtn"></button>
     </div>
-    <Swiper ref="{swiperRef}" :slidesPerView="3" class="mySwiper" >
-    <swiper-slide v-for="(project,i) in projects" :key="i">
-      <ProjectList :project="project"/>
+    <Swiper ref="{swiperRef}" :slidesPerView="3" :pagination="{
+      clickable: true, }" :navigation="true" :modules="modules" class="mySwiper" >
+    <swiper-slide v-for="(project,i) in projects" :key="i"  >
+      <ProjectList :project="project"  @parent="showPopup"/>
     </swiper-slide>
-    
-  
   </Swiper>
+  
   </div><!-- s_project -->
 
   <div class="section s_about">
@@ -177,6 +177,17 @@
   </div>
   <SubSection/>
   </div> <!-- 홈 -->
+
+   <!-- popup 부분-->
+   <div class="black-bg" v-if="popup" @click="popup = false">
+    <div class="white-bg">
+      <PopupItem v-if="selectedProject" :project="selectedProject" />
+      <button @click="popup = false" class="detail_xbtn">
+        <img src="../assets/detail_xbtn.svg" alt="닫기버튼"/>
+      </button>
+    </div>
+  </div>
+
 </template>
 
 <script lang="ts">
@@ -185,6 +196,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Navigation } from 'swiper/modules';
 import ProjectList from "@/components/ProjectList.vue";
 import SubSection from "@/components/SubSection.vue";
+import PopupItem from "@/components/PopupItem.vue";
 import IntroSection from "@/components/IntroSection.vue";
 import { useRouter } from 'vue-router'; // useRouter 훅 사용
 import projectsData from '../data/project.json'; // JSON 파일 import
@@ -202,16 +214,22 @@ export default defineComponent({
     SwiperSlide,
     ProjectList,
     SubSection,
-    IntroSection
+    IntroSection,
+    PopupItem,
   },
   data(){
     return{
       projects: projectsData.project, // 프로젝트 데이터를 저장할 배열
       activeIndex: 1 as (number | null),
-   
+      popup: false, // 팝업 상태
+      selectedProject: null, // 선택된 프로젝트 데이터
     }
   },
   methods:{
+    showPopup(project: any) {
+      this.selectedProject = project; // 선택된 프로젝트 데이터 저장
+      this.popup = true; // 팝업 열기
+    },
     // 호버 시 활성화된 항목을 관리
     onHover(index: number):void {
       this.activeIndex = index; // 해당 인덱스의 항목을 활성화
@@ -248,7 +266,8 @@ export default defineComponent({
     };
 
     return {
-      goToAbout, goToCareer
+      goToAbout, goToCareer,
+      modules: [Pagination, Navigation],
     };
   }
 });
@@ -420,7 +439,6 @@ export default defineComponent({
   width: 83%;
   color: white;}
 }
-
 .s_about{
   display: flex;
   flex-direction: column;              
@@ -454,7 +472,7 @@ export default defineComponent({
     height: 50px;
     background-color: var(--serve-color);
   }
-}
+ }
 }
 .s_interview{
   background-color: var(--primary-color);
@@ -626,6 +644,40 @@ export default defineComponent({
   }
 }
 
+ //팝업 부분
+ .black-bg {
+  width: 100vw;
+  height:100vh;
+  background: rgba(0,0,0,0.7);
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 99;
+  padding: 5% 0;
+  .white-bg {
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  margin: 0 auto;
+  width: 80vw;
+  height: 80vh;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  z-index: 100;
+  }
+  .detail_xbtn {
+  position: absolute;
+  top:6%;
+  right:3%;
+  z-index: 101;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+ }
+  }
 
 
 
