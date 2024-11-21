@@ -34,16 +34,25 @@
       <h3>PROJECT</h3>
     </div>
     <div class="btnsection">
-      <button class="albumbtn"></button>
+      <button class="albumbtn" @click="viewMode = 'album'" 
+      :class="{ active: viewMode === 'album' }"></button>
       <span>|</span>
-      <button class="slidebtn"></button>
+      <button class="slidebtn" @click="viewMode = 'swiper'" 
+      :class="{ active: viewMode === 'swiper' }"></button>
     </div>
-    <Swiper ref="{swiperRef}" :slidesPerView="3" :pagination="{
-      clickable: true, }" :navigation="true" :modules="modules" class="mySwiper" >
-    <swiper-slide v-for="(project,i) in projects" :key="i"  >
-      <ProjectList :project="project"  @parent="showPopup"/>
-    </swiper-slide>
-  </Swiper>
+    <div class="con_list">
+      <div class="list_s" v-if="viewMode === 'swiper'">
+        <Swiper ref="{swiperRef}" :slidesPerView="3" :pagination="{
+          clickable: true, }" :navigation="true" :modules="modules" class="mySwiper" >
+          <swiper-slide v-for="(project,i) in projects" :key="i"  >
+            <ProjectList :project="project"  @parent="showPopup"/>
+          </swiper-slide>
+        </Swiper>
+      </div>
+      <div class="list_a"  v-if="viewMode === 'album'">
+        <ProjectList v-for="(project,i) in projects" :key="i"  :project="project"  @parent="showPopup"/>
+      </div>
+    </div>
   
   </div><!-- s_project -->
 
@@ -52,13 +61,14 @@
         <h5>자기 소개 및 관련 사항</h5>
         <h3>About Me</h3>
       </div>
-      <div class="canvas"><img src="../assets/about.png" alt="나의 이모지"></div>
+      <div class="canvas" id="memberRenderBox">
+        <!-- <img src="../assets/about.png" alt="나의 이모지"> -->
+      </div>
       <p>안녕하세요! 생각의 경계를 넘어서는 <strong>유연한 사고</strong>와 <strong>혁신적인 발상</strong>으로 <strong>무한한 가능성</strong>을 만들어내고 싶은 <strong>프론트엔드 개발자 박지연</strong> 입니다.<br>
          작은 단위의 <Strong>컴포넌트를 재사용</Strong>하고 <Strong>확장성을 고려</Strong>해 개발하는 것을 좋아하며 새롭게 배운 기술을 업무에 적용해 더 나은 서비스를<br>
          구축하는 것을 목표로 정진합니다.
       </p>
       <button @click="goToAbout">더보기</button>
-    
   </div>
 
   <div class="section s_interview">
@@ -191,7 +201,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Navigation } from 'swiper/modules';
 import ProjectList from "@/components/ProjectList.vue";
@@ -223,6 +233,7 @@ export default defineComponent({
       activeIndex: 1 as (number | null),
       popup: false, // 팝업 상태
       selectedProject: null, // 선택된 프로젝트 데이터
+      
     }
   },
   methods:{
@@ -245,17 +256,6 @@ export default defineComponent({
     // activeIndex 상태에 따라서 각 항목의 열림/닫힘 상태를 반환
     isOpen(index: number) { return this.activeIndex === index;  }
   },
-  mounted() {
-    // 서버에서 데이터를 fetch
-    fetch('/api/projects')
-      .then((response) => response.json())
-      .then((data) => {
-        this.projects = data.projects; // 프로젝트 데이터를 컴포넌트에 저장
-      })
-      .catch((error) => {
-        console.error('Error fetching projects:', error);
-      });
-  },
   setup() {
     const router = useRouter(); // useRouter 훅을 사용하여 router 객체를 가져옵니다.
     const goToAbout = () => {
@@ -264,10 +264,13 @@ export default defineComponent({
     const goToCareer = () => {
       router.push({ name: 'career' }); // router.push로 이동
     };
+    // 선택된 뷰 모드 (swiper 또는 album)
+    const viewMode = ref<'swiper' | 'album'>('swiper');
 
     return {
       goToAbout, goToCareer,
       modules: [Pagination, Navigation],
+      viewMode
     };
   }
 });
@@ -282,7 +285,6 @@ export default defineComponent({
   --serve-color: #2D2D2D;
 }
 .home{
-
 //섹션마다 공통으로 쓰는 것들
 .section{
   width: 100%;
@@ -405,7 +407,7 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;              
   align-items: center;
-  height: 100vh;  
+  height: 100vh;
   .text-wrap{
     color: white;
     margin-bottom: 35px;
@@ -417,52 +419,97 @@ export default defineComponent({
   z-index: 10; //위로 올려주니 커서 포인트가 됨
   display: flex;
   gap: 25px;
-  button{
-    border: none;
-    width: 54px;
-    height: 54px;
-    border-radius: 10px;
-    background-size: cover;
-  }
+    button{
+      display: block;
+      border: none;
+      width: 54px;
+      height: 54px;
+      border-radius: 10px;
+      // background-size: cover;
+      // background-color: #3E3E3E;
+      // transition: background-color 0.3s;
+      &.active {
+          background-color: var(--primary-color);
+          color: white;
+          }
+    }
+  // .albumbtn{
+  //   background: #3E3E3E url('../assets/albumbtn.svg') center no-repeat;
+  // }
+  // .slidebtn{
+  //   background: #2546B4 url('../assets/slidebtn.svg') center no-repeat;
+  // }
   .albumbtn{
-    background: #3E3E3E url('../assets/albumbtn.svg') center no-repeat;
+    background: url('../assets/albumbtn_white.svg') center no-repeat;
   }
   .slidebtn{
-    background: #2546B4 url('../assets/slidebtn.svg') center no-repeat;
+    background: url('../assets/slidebtn_white.svg') center no-repeat;
   }
   span{
     background-color: #3E3E3E;
     font-size: 3px;  
   }
  }
- .swiper{
-  width: 83%;
-  color: white;}
+ .con_list{
+  width:100%;
+    .list_s{
+      
+      .swiper{
+           width: 83%;
+           color: white;}
+       }
+    .list_a{
+      display: flex;
+      // flex-wrap: wrap;
+
+    }
+   }
+ 
 }
+
+
+
+
 .s_about{
   display: flex;
   flex-direction: column;              
   justify-content: center;    
   height: 100vh;
+  position:relative;
   .text-wrap{
     margin: 0 0 50px 10%;
     text-align: left;
+    position: absolute;
+    top:10%;
+    left:0;
+    z-index: 1;
     h5{margin-bottom: -13px;}
-  }
+   }
   .canvas{
-    margin-top: -60px;
+    position:absolute;
+    left:0; top:0;
+    width:100%; height:100vh;
     img{
       width:700px;
       height: auto;
       object-fit: cover;
     }
-  }
+   }
   p{
+    position: absolute;
+    bottom:14%;
+    left:0;
     margin: 50px 10% 30px;
     font-size: 1.6rem;
     text-align: left;
-  }
+    z-index: 1;
+   }
   button{
+    position: absolute;
+    z-index: 1;
+    bottom:10%;
+    left:50%;
+    transform: translateX(-50%);
     font-size: 1rem;
     margin: 0 auto;
     border-radius: 10px;
@@ -471,9 +518,8 @@ export default defineComponent({
     width: 200px;
     height: 50px;
     background-color: var(--serve-color);
+   }
   }
- }
-}
 .s_interview{
   background-color: var(--primary-color);
   color: white;
@@ -643,9 +689,9 @@ export default defineComponent({
    
   }
 }
-
- //팝업 부분
- .black-bg {
+}
+//팝업 부분
+.black-bg {
   width: 100vw;
   height:100vh;
   background: rgba(0,0,0,0.7);

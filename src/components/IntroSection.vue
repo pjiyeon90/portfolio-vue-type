@@ -60,7 +60,7 @@ export default defineComponent ({
   b{
     display: inline-block;
     color: var(--primary-color);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 200;
     padding: 20px 30px;
     border: 1px solid var(--primary-color);
