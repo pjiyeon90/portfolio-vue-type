@@ -296,8 +296,8 @@
             "figma": {
               "scene": ["ocean_logo.svg"]
             }, 
-        "github_url":"https://github.com/pjiyeon90/movieProject_sawing",
-        "site_url":"https://movie-project-sawing.vercel.app/"
+        "github_url":"https://github.com/pjiyeon90/move-sawing-react",
+        "site_url":"https://move-sawing-react.vercel.app/"
       },
       {
         "project_name": "NEWS",
@@ -322,6 +322,70 @@
           "BOOTSTRAP",
           "SWIPER"
         ],
+        "project_description": {
+          "overview": "본 프로젝트는 한화해양생물연구센터 사이트를 리뉴얼한 것으로 해양생물에 대한 정보나 연구 자료, 구조 치료에 대한 정보를 얻을 수 있는 사이트입니다. 상업적으로 만든 사이트가 아닌 만큼 관심도가 낮아 오랫동안 방치, 노후화되고 옛스러운 디자인에 고착되어있어 리뉴얼을 결정하였습니다.정보 전달의 목적이지만 사용자가 사용하기 쉽고 정보를 한눈에 볼 수 있도록 디자인 방향성을 잡고 리뉴얼을 진행하였습니다.",
+          "features": [
+            "반응형 웹 디자인: _common.scss에서 반응형 변수를 사용하여 기기 유형에 맞춰 화면 크기 최적화.",
+            "사이드 네비게이션을 통해 각 섹션으로 이동할 수 있도록 idx 값을 활용.",
+            "해양 생물 연구 센터 사이트의 정보는 페이지별로 유형이 나누어져 있으며 JSON으로 처리.",
+            "메인 페이지에서 사용자가 특정 탭을 클릭하면 정보가 로컬 스토리지에 저장되고, 서브 페이지에서 해당 값을 받아 관련 콘텐츠를 즉시 표시.",
+            "연구 자료를 검색할 수 있는 기능을 제공하며, 입력한 값에 맞는 데이터를 필터링하고 출력.",
+            "클릭한 탭에 맞는 리스트를 data-num 속성을 사용해 동적으로 표시."
+          ],
+          "individual": [
+            {
+              "title": "header 부분",
+              "todo":[
+              "idx 값이 0이 아닐 경우 배경색을 추가하여 가독성을 높임.",
+              "스크롤 시, 헤더는 HeaderVisible = false로 설정되고, 스크롤 업 시 HeaderVisible = true로 설정.",
+              "768px 이하의 화면 크기에서는 모바일 모드로 변경되며, 네비게이션 메뉴의 토글 기능 작동."
+              ]
+          },
+          {
+            "title": "aside navigation 부분",
+            "todo": [
+              "인디케이터를 클릭하면 해당 섹션으로 이동하고, active 클래스를 추가하여 transform: translateY로 이동.",
+              "마우스 휠 기능을 이용해 섹션 간 이동하며, t_device 값에 따라 휠 기능을 활성화/비활성화."
+            ]
+          },
+          {
+            "title": "탭 기능",
+            "todo":
+              [
+              "탭을 클릭할 때, 해당 탭의 데이터를 로컬 스토리지에 저장하고 서브 페이지에서 이를 불러와 표시.",
+              "fetch를 이용해 JSON 데이터를 로드하고, 텍스트 항목은 elp에, 사진 항목은 elFigure에 출력."
+            ]
+          },
+          {
+            "title": "카카오 지도 API 사용 및 수정",
+            "todo":
+            [
+              "카카오에서 제공하는 맵 API를 이용, 검색창 input의 value값을 아쿠아플라넷으로 설정하고 검색창은 display: none 처리",
+              "무수한 검색 값이 출력되어 ea = 5로 출력 값을 한정시키고 마커와 리스트 항목이 5개까지만 생성되도록 for문 설정",
+              "검색 결과 목록창이 자꾸 지도 마커를 가려 마커 호버 기능을 사용할 수 없어 클릭 이벤트를 사용하여 목록창을 접거나 펼칠 수 있게 기능 추가"
+            ]
+          }
+        ]
+        },
+        "troubleshooting": [
+        {
+            "title": "마우스 휠",
+            "problem": "마우스가 없는 모바일, 태블릿 기기에서 휠 기능을 비활성화하지 않아 여러 가지 문제가 발생.",
+            "solution": "휠 기능을 사용하려면 position: fixed 스타일을 사용해야 하지만, 이를 적용하면 메인 영역이 고정되어 '떠다니는' 현상이 발생. 이를 해결하기 위해 푸터를 메인 영역 안에 포함시켜 휠 기능과 푸터가 정상적으로 작동하도록 수정."
+        },
+        {
+            "title":"카카오 지도 API 및 검색 기능" ,
+            "problem": "맵에서 검색 결과의 정보 박스가 화면을 가려 맵 스크롤에 방해되는 문제 발생.",
+            "solution": "transformX를 사용해 정보 박스를 숨기고, 아이콘 클릭 시에만 확장되도록 개선하여 맵을 스크롤할 때 정보 박스가 화면을 가리지 않도록 수정."
+               
+          }
+        ],
+        "logo": {
+            "photo": ["ocean_logo.svg", "ocean_favicon.png"]
+          },
+          "figma": {
+            "scene": ["ocean_logo.svg"]
+          }, 
         "github_url":"https://github.com/pjiyeon90/new-app-vue",
         "site_url":"https://new-app-vue.vercel.app/"
       }
