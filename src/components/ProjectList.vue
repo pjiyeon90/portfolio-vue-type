@@ -18,7 +18,7 @@
                     <em>개발 환경</em>
                     <div>
                       <span v-for="(item,idx) in project.development_environment" :key="idx">
-                      / {{item}}
+                      {{item}}
                     </span>
                     </div>
                     
@@ -64,8 +64,12 @@ export default defineComponent({
         .list_body{
             padding: 25px ;
             border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
             background-color: white;
             width: 100%;
+            height: 64vh;
             color: var(--serve-color);
             .list_txt{
               text-align: left;
@@ -74,10 +78,15 @@ export default defineComponent({
                 margin: 15px 0 20px;
                 display: flex;
                 justify-content: space-between;
+                // position: relative;
                 h2{
                     font-size: 1.5rem;
                   }
                 .btn_wrap{
+                  // position: absolute;
+                  // top:0;
+                  // right:0;
+                  // z-index: 99;
                     a{
                         display: inline-block;
                         &:last-child{
@@ -94,19 +103,34 @@ export default defineComponent({
                  margin-bottom: 20px;
                  word-break: keep-all;
                  }
-                 ul{
+                 ul{   display: flex;
+                       flex-direction: column;
                     li{ display: flex;
+                        align-items:self-start;
+                        word-break: keep-all;
+                        margin-bottom: 10px;
           
                         em{ display: block;
-                            width:30%;
-                            // margin: 0 10px 10px 0;
+                            width:25%;
                             border:1px solid var(--serve-color);
-                            // padding: 0 10px;
                             border-radius: 99px;
                             font-style: normal;
+                            text-align: center;
+                            margin-right: 10px;
+                            
                         }
                         div{
-                          width: 70%;
+                          width: 75%;
+                          display: flex;
+                          flex-wrap: wrap;
+                          span{
+                            display: inline-block;
+                            &::after{
+                              content: '/';
+                              display: inline-block;
+                              margin: 0 5px;
+                            }
+                          }
                         }
                     }
                  }

@@ -1,6 +1,7 @@
 <template>
     <div class="s_subscribe">
-      <div class="text-wrap">
+      <div class="sub-middle">
+        <div class="text-wrap">
         <h3>Subscribe to<br>my newsletter</h3>
         <span>이메일을 입력해주시면 이력서와 포트폴리오를 보내드립니다.</span>
       </div>
@@ -11,6 +12,7 @@
         </button>
       </form>
       <p v-if="error" style="color: red;">{{ error }}</p>
+      </div>
   </div>
 </template>
 <script lang="ts">
@@ -53,15 +55,18 @@ export default defineComponent({
 </script>
 <style lang="scss">
   .s_subscribe{
-    display: flex;
-    align-items: center;
     background-color: var(--serve-color);
-    height: 40vh;
-    .text-wrap{
+    .sub-middle{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 92vw;
+      height: 40vh;
+      margin: 0 auto;
+      .text-wrap{
         width: 36%;
         color: white;
         text-align: left;
-        margin: 0 0 0 10%;
         h3{
         font-size: 4.5rem;
         line-height: 5rem;
@@ -100,5 +105,7 @@ export default defineComponent({
         border-radius: 99px;
         }
     }
+    }
+    
 }
 </style>

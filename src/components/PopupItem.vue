@@ -34,7 +34,7 @@
             <h4>주요 기능 및 특징</h4>
             <ul>
                 <li v-for="(item,idx) in project.project_description.features" :key="idx">
-                    - {{item}}
+                    <span>-</span> {{item}}
                 </li>
             </ul>
            </section>
@@ -45,7 +45,7 @@
             <ul>
                <li v-for="(item,idx) in project.project_description.individual" :key="idx">
                     <div>{{item.title}}</div>
-                    <p v-for="(item2,idx2) in item.todo" :key="idx2">{{item2}}</p>
+                    <p v-for="(item2,idx2) in item.todo" :key="idx2" class="second-p"><span>-</span>{{item2}}</p>
                 </li> 
             
             </ul>
@@ -56,7 +56,7 @@
                 <li v-for="(item,idx) in project.troubleshooting" :key="idx">
                     <div>[{{ item.title }}]</div>
                     <p>{{ item.problem }}</p>
-                    <span> ㄴ {{ item.solution }}</span>
+                    <span> <i>ㄴ</i>{{ item.solution }}</span>
                 </li>
             </ul>
            </section>
@@ -121,15 +121,23 @@ export default defineComponent({
             align-items: center;
             margin-bottom: 5px;
             em{
+                width: 12%;
                 font-style: normal;
                 padding: 3px 15px;
                 border: 1px solid var(--serve-color);
                 border-radius: 99px;
                 margin-right: 20px;
             }
-            span{
+            div{
+                width:88%;
+                display: flex;
+                flex-wrap: wrap;
                 text-align: left;
-                }
+               span{
+                width: 50%;
+                } 
+            }
+            
           }
        }
        > p{
@@ -175,15 +183,10 @@ export default defineComponent({
                     font-size: 1.5rem;
                     text-align: left;
                 }
-                ul{
+                > ul{
                     margin-top: 20px;
-                    li{
-                        font-size: 1.1rem;
-                        display: flex;
-                        flex-direction: column;
-                        p{
-                            margin: 10px 0;
-                        }
+                     > li{
+                        font-size: 1.1rem;       
                     }
                 }
             }
@@ -197,8 +200,12 @@ export default defineComponent({
                   } 
                 }
                 ul{
-                    li{
-                        margin-bottom: 2px;
+                    li{ 
+                        display: flex;
+                        span{
+                            margin-right: 5px;
+                            display: block;
+                        }
                     }
                 }
             }
@@ -221,12 +228,25 @@ export default defineComponent({
                   } 
                 }
                 ul{
+                    display: flex;
+                    flex-direction: column;
                     li{ 
                         div{
                             padding: 10px 0 10px 30px;
                             width:100%;
                             background-color: #D9D9D9;
+                            margin: 20px 0;
                         }
+                        p{  width: 95%;
+                            line-height: 1.7rem;
+                            margin-left: 20px;
+                            display: flex;
+                        span{
+                            display: block;
+                            padding-right: 10px;
+                        }
+                        }
+                           
                     }
                 }
             }
@@ -239,20 +259,28 @@ export default defineComponent({
                     vertical-align: middle;
                   }
                 }
-                ul{
+                ul{    
+                    display: flex;
+                    flex-direction: column;
                     li{
-                        margin-top: 30px;
+                      margin-bottom: 15px;
+                      line-height: 1.6rem;
                         div{
                             margin-bottom: 4px;
                           }
                         p{
                         padding:3px 0 3px 10px;
-                        margin: 0;
+                        margin: 10px 0;
                         background-color: #ddd;
                         }
                         span{
-                            margin-top: 4px;
-                            padding-left: 10px;
+                            display: flex;
+                        
+                            margin: 10px 0;
+                            i{  font-style: normal;
+                                display: block;
+                                margin-right: 5px;
+                            }
                         }
                     }
                 }

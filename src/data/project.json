@@ -28,7 +28,7 @@
           }
         ],
         "development_environment": [
-          "HTTP",
+          "HTML",
           "SCSS",
           "JAVASCRIPT",
           "JQUERY"
@@ -303,34 +303,24 @@
         "project_name": "NEWS",
         "project_type": "모바일 APP",
         "project_thumnail": "news_thumnail.png",
-        "project_summary": "본 프로젝트는 TMDB API를 이용한 영화 사이트 정보 사이트로 반응형으로 만들었습니다.",
+        "project_summary": "본 프로젝트는 뉴스 API를 이용해 국내, 해외 뉴스 기사 정보를 제공하는 모바일 앱입니다.",
         "development_period": {
-          "date": "2024.09.13(금) ~ 2024.9.26(목)",
+          "date": "2024.10.25.(금)~ 2024.10.29(화)",
           "duration_weeks": 1
         },
         "team_composition": [
           {
             "name": "박지연",
-            "role": "디자인 및 메인 페이지, JSON 작업, 기타 API"
-          },
-          {
-            "name": "강민현",
-            "role": "서브 페이지, 기획 및 개발"
-          },
-          {
-            "name": "고유나",
-            "role": "서브 페이지 담당, 개발 및 리소스"
-          },
-          {
-            "name": "박민지",
-            "role": "서브 페이지 담당, JSON 작업 및 리소스"
+            "role": "전체 디자인 및 API 작업, 기능 구현"
           }
         ],
         "development_environment": [
-          "HTTP",
+          "VUE",
           "SCSS",
           "JAVASCRIPT",
-          "REACT"
+          "AXIOS",
+          "BOOTSTRAP",
+          "SWIPER"
         ],
         "github_url":"https://github.com/pjiyeon90/new-app-vue",
         "site_url":"https://new-app-vue.vercel.app/"
