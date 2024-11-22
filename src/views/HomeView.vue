@@ -2,13 +2,13 @@
   <div class="home">
    <IntroSection/>
   <div class="section s_cart">
-    <p>어떤 인재를 주문하시겠습니까?<br> 메뉴에서 골라<br> 테이크 아웃하세요 !</p>
+    <p>어떤 개발자를 주문하셨나요?<br> 메뉴에서 골라<br> 테이크 아웃하세요 !</p>
     <figure><img src="../assets/cart.png" alt="움직이는 gif"></figure>
   </div>
   <div class="section s_service">
     <div class="text-wrap">
-      <h5>주문하고 싶은 서비스가 있나요?</h5>
-      <h3>WHAT MY SERVICE</h3>
+      <h5>원하시는 인재가 있으신가요?</h5>
+      <h3>WHAT YOUR CHOICE</h3>
     </div>
     <ul>
       <li class="scrolling-text" >
