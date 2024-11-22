@@ -24,8 +24,8 @@
         <p>{{ project.project_description.overview }}
         </p>
         <div class="btn_wrap">
-               <a :href="project.github_url" class="git_icon">깃허브 바로가기</a> 
-               <a :href="project.site_url" class="site_icon">서비스 바로가기</a> 
+               <a :href="project.github_url" class="git_icon" target="_blank" >깃허브 바로가기</a> 
+               <a :href="project.site_url" class="site_icon" target="_blank" >서비스 바로가기</a> 
         </div>
 
         <div class="team_explain">

@@ -8,8 +8,12 @@
             <div class="btn_section">
              <h2>{{ project.project_name }}</h2>
             <div class="btn_wrap">
-               <a href="#"><img src="../assets/git_icon.svg" alt="깃허브 바로가기"></a> 
-               <a href="#"><img src="../assets/site_icon.svg" alt="사이트 바로가기"></a> 
+               <a @click="$event.stopPropagation();" :href="project.github_url" target="_blank">
+                <img src="../assets/git_icon.svg" alt="깃허브 바로가기">
+              </a> 
+               <a @click="$event.stopPropagation();" :href="project.site_url" target="_blank">
+                <img src="../assets/site_icon.svg" alt="사이트 바로가기">
+              </a> 
             </div>   
             </div>
             <p>{{ project.project_summary }}</p>
@@ -50,6 +54,8 @@ export default defineComponent({
         development_environment: string;
         development_period:  {date: string | number; duration_weeks: number;};
         project_description: { overview: string };
+        github_url: string;
+        site_url: string;
       },
       required: true,  // 필수 prop으로 설정
     },
