@@ -11,7 +11,7 @@
             <img src="../assets/submit_arrow.svg" alt="검색"/>
         </button>
       </form>
-      <p v-if="error" style="color: red;">{{ error }}</p>
+      <p v-if="error" style="color: yellow; font-size: 0.9rem;">{{ error }}</p>
       </div>
   </div>
 </template>
@@ -29,6 +29,11 @@ export default defineComponent({
     };
   },
   methods: {
+     // 이메일 형식 검사 함수
+     isValidEmail(email: string): boolean {
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      return emailPattern.test(email);  // 정규식으로 이메일 형식 검사
+    },
     // 이메일 제출 함수
     async handleSubmit() {
      console.log('submit clicked');  // 디버깅용
@@ -36,6 +41,14 @@ export default defineComponent({
         this.error = '이메일을 입력해 주세요.';
         return;
       }
+
+        // 이메일 형식이 올바른지 확인
+        if (!this.isValidEmail(this.email)) {
+        this.error = '올바른 이메일 형식을 입력해 주세요.';
+        alert(this.error);
+        return;
+      }
+
       this.isSubmitting = true;
       this.error = ''; // 이전 에러 초기화
       try {
@@ -46,6 +59,7 @@ export default defineComponent({
         alert('구독이 완료되었습니다!');
       } catch (err) {
         this.error = '저장 중 오류가 발생했습니다. 다시 시도해 주세요.';
+        alert(this.error);
       } finally {
         this.isSubmitting = false;
       }

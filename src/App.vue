@@ -74,6 +74,7 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: var(--serve-color);
+  min-width: 360px;
 }
 body{
   margin: 0 auto;

@@ -4,6 +4,7 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import './styles/reset.scss';
+import './styles/responsive.scss';
 
 // Firebase 설정 추가
 import './lib/firebase'; // firebase 설정 파일 임포트

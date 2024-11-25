@@ -2,7 +2,7 @@
   <div class="home">
    <IntroSection/>
   <div class="section s_cart">
-    <p>어떤 개발자를 주문하셨나요?<br> 메뉴에서 골라<br> 테이크 아웃하세요 !</p>
+    <p class="cart_p">어떤 개발자를<i>주문하셨나요?</i> <span> 메뉴에서 골라</span><span>테이크 아웃하세요 !</span> </p>
     <figure><img src="../assets/cart.png" alt="움직이는 gif"></figure>
   </div>
   <div class="section s_service">
@@ -104,13 +104,13 @@
         </div>
       </div>
       <ul>
-        <li>
+        <li class="unactive">
           <div class="c_front">
                 <span>2024. 12. 01 ~</span>
                 <h3>무궁무진한 발전을 기약, 미래의 회사</h3>
           </div>
         </li>
-        <li class="spreadsection" :class="{ active: isOpen(1) }" @mouseenter="onHover(1)" >
+        <li class="spreadsection" :class="{ active: isOpen(1) }" @click="onClick(1)" >
           <div class="c_front">
                 <span>2018-09-10 ~ 2023-12-01 </span>
                 <h3>(주)베스트해피라인 / (주)금오H라인</h3>
@@ -124,7 +124,7 @@
                 </p>
           </div>
         </li>
-        <li class="spreadsection" :class="{ active: isOpen(2) }" @mouseenter="onHover(2)" >
+        <li class="spreadsection" :class="{ active: isOpen(2) }" @click="onClick(2)" >
           <div class="c_front" >
                 <span>2015.3.23 ~ 2017.11.06</span>
                 <h3>(주)토다이 평촌점</h3>
@@ -140,7 +140,7 @@
                 </p>
           </div>
         </li>
-        <li class="spreadsection" :class="{ active: isOpen(3) }" @mouseenter="onHover(3)" >
+        <li class="spreadsection" :class="{ active: isOpen(3) }" @click="onClick(3)" >
           <div class="c_front">
                 <span>2013.2.15~2015.01.28</span>
                 <h3>호주 워킹홀리데이</h3>
@@ -155,7 +155,7 @@
                 </p>
           </div>
         </li>
-        <li class="spreadsection" :class="{ active: isOpen(4) }" @mouseenter="onHover(4)">
+        <li class="spreadsection" :class="{ active: isOpen(4) }" @click="onClick(4)">
           <div class="c_front">
                 <span>2011.5.13 ~ 2012.07.29</span>
                 <h3>(주)호반호텔앤리조트</h3>
@@ -169,19 +169,18 @@
                 </p>
           </div>
         </li>
-        <li>
+        <li class="unactive">
           <div class="c_front">
                 <span>2008.03 ~ 2011.02</span>
                 <h3>대림대 졸업</h3>
           </div>
         </li>
-        <li>
+        <li class="unactive">
           <div class="c_front">
                 <span>2005.03 ~ 2008.02</span>
                 <h3>산본고 졸업</h3>
           </div>
         </li>
-        
       </ul>
     
   </div>
@@ -197,7 +196,6 @@
       </button>
     </div>
   </div>
-
 </template>
 
 <script lang="ts">
@@ -241,17 +239,22 @@ export default defineComponent({
       this.selectedProject = project; // 선택된 프로젝트 데이터 저장
       this.popup = true; // 팝업 열기
     },
-    // 호버 시 활성화된 항목을 관리
-    onHover(index: number):void {
-      this.activeIndex = index; // 해당 인덱스의 항목을 활성화
+     // 클릭 시 활성화된 항목을 관리
+    onClick(index: number):void {
+      // 클릭된 항목이 이미 활성화 상태라면 비활성화
+      if (this.activeIndex === index) {
+        this.activeIndex = null;
+      } else {
+        this.activeIndex = index;
+      }
     },
 
     // 호버에서 벗어났을 때 상태를 초기화
-    onLeave() {
-      // activeIndex가 1 ~ 4 사이의 값일 경우에만 비활성화
-      if (![1, 2, 3, 4].includes(this.activeIndex as number)) return;
-      this.activeIndex = null;
-    },
+    // onLeave() {
+    //   // activeIndex가 1 ~ 4 사이의 값일 경우에만 비활성화
+    //   if (![1, 2, 3, 4].includes(this.activeIndex as number)) return;
+    //   this.activeIndex = null;
+    // },
 
     // activeIndex 상태에 따라서 각 항목의 열림/닫힘 상태를 반환
     isOpen(index: number) { return this.activeIndex === index;  }
@@ -262,13 +265,14 @@ export default defineComponent({
       router.push({ name: 'about' }); // router.push로 이동
     };
     const goToCareer = () => {
-      router.push({ name: 'career' }); // router.push로 이동
+      router.push({ name: 'about' }); // router.push로 이동
     };
     // 선택된 뷰 모드 (swiper 또는 album)
     const viewMode = ref<'swiper' | 'album'>('swiper');
 
     return {
-      goToAbout, goToCareer,
+      goToAbout,
+      goToCareer,
       modules: [Pagination, Navigation],
       viewMode
     };
@@ -288,7 +292,7 @@ export default defineComponent({
 //섹션마다 공통으로 쓰는 것들
 .section{
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
   margin: 0 auto;
   .text-wrap{
     h5{
@@ -296,12 +300,12 @@ export default defineComponent({
       font-size: 1.8rem;
     }
     h3{
-      
       font-size: 4rem;
     }
   }
 }
 .s_cart{
+  height: 100vh;
   padding: 0 160px;
   background-color: var(--primary-color);
   display: flex;
@@ -313,7 +317,13 @@ export default defineComponent({
     font-weight: 400;
     font-size: 4.1rem;
     color: white;
-    letter-spacing: -3%;
+    letter-spacing: -1px;
+    i{
+      font-style: normal;
+    }
+    span{
+      display: block;
+    }
   }
   figure{
     padding-left: 60px;
@@ -407,14 +417,14 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;              
   align-items: center;
-  height: 100vh;
+  // height: 100vh;
   .text-wrap{
     color: white;
-    margin-bottom: 35px;
+    margin: 80px 0 35px;
   }
  .btnsection{
   position: absolute;
-  top:15%;
+  top:150px;
   right: 16%;
   z-index: 10; //위로 올려주니 커서 포인트가 됨
   display: flex;
@@ -425,20 +435,11 @@ export default defineComponent({
       width: 54px;
       height: 54px;
       border-radius: 10px;
-      // background-size: cover;
-      // background-color: #3E3E3E;
-      // transition: background-color 0.3s;
       &.active {
           background-color: var(--primary-color);
           color: white;
           }
     }
-  // .albumbtn{
-  //   background: #3E3E3E url('../assets/albumbtn.svg') center no-repeat;
-  // }
-  // .slidebtn{
-  //   background: #2546B4 url('../assets/slidebtn.svg') center no-repeat;
-  // }
   .albumbtn{
     background: url('../assets/albumbtn_white.svg') center no-repeat;
   }
@@ -452,24 +453,53 @@ export default defineComponent({
  }
  .con_list{
   width:100%;
+  margin-bottom: 80px;
     .list_s{
-      
       .swiper{
            width: 83%;
-           color: white;}
+           color: white;
+          .swiper-button-prev{
+            width: 50px;
+            height: 50px;
+            border-radius: 99px;
+            background-color: rgba(0,0,0,0.6);
+            &::after{
+            content: url("../assets/maki_arrow_left.svg");
+            display: inline-block;
+            }
+          }
+          .swiper-button-next{
+            width: 50px;
+            height: 50px;
+            padding: 0 10px;
+            border-radius: 99px;
+            background-color: rgba(0,0,0,0.6);
+            &::after{
+            content: url("../assets/maki_arrow_right.svg");
+            display: inline-block;
+            } 
+           }
+          }
+
        }
     .list_a{
+      margin: 0 160px;
       display: flex;
-      // flex-wrap: wrap;
+      flex-wrap: wrap;
+      .list_item{
+        width:32%;
+        z-index: 5;
+        .taptit{
+          i{
+            color: white;
+          }
+        }
+      }
 
     }
    }
  
 }
-
-
-
-
 .s_about{
   display: flex;
   flex-direction: column;              
@@ -621,7 +651,6 @@ export default defineComponent({
       // writing-mode: vertical-rl;
       transform-origin: 0% 0%;
       transform: translate(76%,50px) rotate(90deg) ;
-      
       text-align: start;
       background-color: white;
       z-index: 10;
@@ -669,7 +698,7 @@ export default defineComponent({
         }
 
       }
-    /* li가 hover 되었을 때 */
+    /* li가 클릭되었을 때 */
       &.active{
         flex-grow: 6;
         height: 100%;
@@ -686,7 +715,15 @@ export default defineComponent({
         }
       }
     }
-   
+    .unactive{
+      background-color: #d6d6d6;
+      div{
+        background-color: #d6d6d6;
+      }
+    }
+    .spreadsection{
+      cursor: pointer;
+    }
   }
 }
 }

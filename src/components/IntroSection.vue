@@ -1,7 +1,7 @@
 <template>
    <div class="contents s_intro">
     <h2><span v-for="(char, index) in animatedText" :key="index" :style="{ animationDelay: `${index * 0.1}s` }">{{ char }}</span>TAKEOUT?</h2>
-    <b>Who ordered a resume? 이력서 시키신 분?</b>
+    <b>Who ordered a resume?<br> 이력서 시키신 분?</b>
     <div class="introgif">
       <img src="../assets/mainwheel.gif" alt="움직이는 gif"> 
     </div>
@@ -13,7 +13,7 @@ import { defineComponent, ref, onMounted } from "vue";
 
 export default defineComponent ({
   setup() {
-    const texts = ["RESUME-", "", "SKILL-"];
+    const texts = ["RESUME-", "DEVELOP", "SKILL-"];
     const animatedText = ref<string[]>([]);
     const animationDelay = 100; // 각 글자의 애니메이션 딜레이 (ms)
 
@@ -65,6 +65,7 @@ export default defineComponent ({
     padding: 20px 30px;
     border: 1px solid var(--primary-color);
     border-radius: 99px;
+    br{display: none;}
   }
   .introgif{
     margin-top: 60px;

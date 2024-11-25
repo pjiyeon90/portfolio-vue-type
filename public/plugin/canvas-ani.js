@@ -1,4 +1,8 @@
+
 function canvasAni(){
+    
+    const renderBox = document.getElementById('memberRenderBox');
+    if(!renderBox) return;   //서브페이지에서 renderBox를 불러올때 canvas가 없으니 null, !null =true값으로 만들어서 return 실행, 아래것들은 실행하지마라
 
     const { Engine, Render, Runner, World, Bodies, Body, Mouse, MouseConstraint, Events, Vertices } = Matter;
         
@@ -31,7 +35,7 @@ function canvasAni(){
         
         
         
-            const renderBox = document.getElementById('memberRenderBox');
+            
         
             // 렌더 설정
             const render = Render.create({
@@ -203,18 +207,18 @@ function canvasAni(){
             }
         
         
-                // 창 크기 변경 시 렌더 크기 조정
-            window.addEventListener('resize', () => {
-                render.options.width = renderBox.offsetWidth;
-                render.options.height = renderBox.offsetHeight;
-                render.canvas.width = renderBox.offsetWidth;
-                render.canvas.height = renderBox.offsetHeight;
-                /*
-                const ratio = renderBox.offsetWidth / 1000; // 배율 조정
-                updateCharacterScales(ratio);  // 캐릭터 배율만 조정
-                */
-                resetCharacters();
-            });
+            //     // 창 크기 변경 시 렌더 크기 조정
+            // window.addEventListener('resize', () => {
+            //     render.options.width = renderBox.offsetWidth;
+            //     render.options.height = renderBox.offsetHeight;
+            //     render.canvas.width = renderBox.offsetWidth;
+            //     render.canvas.height = renderBox.offsetHeight;
+            //     /*
+            //     const ratio = renderBox.offsetWidth / 1000; // 배율 조정
+            //     updateCharacterScales(ratio);  // 캐릭터 배율만 조정
+            //     */
+            //     resetCharacters();
+            // });
             
             resetCharacters();
 
@@ -226,4 +230,28 @@ function canvasAni(){
                 // e.preventDefault();  url 링크 방지            
             })
 }
-window.addEventListener('load',canvasAni)
+window.addEventListener('load',()=>{
+
+    function faceAni(){
+        
+        const elApp = document.querySelector('#app');
+        const observer = new MutationObserver((entries)=>{
+            entries.forEach(el=>{
+                el.addedNodes.forEach(target=>{
+                    
+                    if(target.className === 'home'){
+                        canvasAni();
+                    }
+                })
+            })
+        });
+        
+        const config = { attributes: true, childList: true, subtree: true };
+        observer.observe(elApp, config);
+    }
+
+    faceAni();
+    canvasAni();
+
+})
+

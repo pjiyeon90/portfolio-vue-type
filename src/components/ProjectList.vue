@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="taptit">
-      <i>반응형 웹</i>
+      <i>{{project.project_type}}</i>
       </div>   
     </div>
  
@@ -56,6 +56,7 @@ export default defineComponent({
         project_description: { overview: string };
         github_url: string;
         site_url: string;
+        project_type:string;
       },
       required: true,  // 필수 prop으로 설정
     },
@@ -75,8 +76,13 @@ export default defineComponent({
             justify-content: space-around;
             background-color: white;
             width: 100%;
-            height: 64vh;
+            min-height: 64vh;
             color: var(--serve-color);
+            figure{
+              img{
+                max-width: 100%;
+              }
+            }
             .list_txt{
               text-align: left;
               margin-left: 4px;
@@ -84,15 +90,10 @@ export default defineComponent({
                 margin: 15px 0 20px;
                 display: flex;
                 justify-content: space-between;
-                // position: relative;
                 h2{
                     font-size: 1.5rem;
                   }
                 .btn_wrap{
-                  // position: absolute;
-                  // top:0;
-                  // right:0;
-                  // z-index: 99;
                     a{
                         display: inline-block;
                         &:last-child{

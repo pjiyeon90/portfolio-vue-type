@@ -13,7 +13,7 @@
  
  export default defineComponent ({
    setup() {
-     const texts = ["RESUME-", "", "SKILL-"];
+     const texts = ["RESUME-", "DEVELOP-", "SKILL-"];
      const animatedText = ref<string[]>([]);
      const animationDelay = 100; // 각 글자의 애니메이션 딜레이 (ms)
  

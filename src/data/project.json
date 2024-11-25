@@ -2,7 +2,7 @@
     "project": [
       {
         "project_name": "해양 생물 연구 센터",
-        "project_type": "반응형 웹",
+        "project_type": "Team Project",
         "project_thumnail": "ocean_thumnail.png",
         "project_summary": "본 프로젝트는 반응형 웹으로 해양생물연구에 대한 자료나 구조ㆍ치료에 대한 정보를 제공합니다.",
         "development_period": {
@@ -102,7 +102,7 @@
       },
       {
         "project_name": "SEOUL - W",
-        "project_type": "모바일 APP",
+        "project_type": "Team Project",
         "project_thumnail": "seoul_thumnail.png",
         "project_summary": "본 프로젝트는 KOSPI API를 이용해 서울 문화 공연 정보를 제공하는 pwa 웹앱입니다.",
         "development_period": {
@@ -213,7 +213,7 @@
       },
       {
         "project_name": "SAWING",
-        "project_type": "반응형 웹",
+        "project_type": "Single Project",
         "project_thumnail": "sawing_thumnail.png",
         "project_summary": "본 프로젝트는 TMDB API를 이용한 영화 사이트 정보 사이트로 반응형으로 만들었습니다.",
         "development_period": {
@@ -301,7 +301,7 @@
       },
       {
         "project_name": "NEWS",
-        "project_type": "모바일 APP",
+        "project_type": "Single Project",
         "project_thumnail": "news_thumnail.png",
         "project_summary": "본 프로젝트는 뉴스 API를 이용해 국내, 해외 뉴스 기사 정보를 제공하는 모바일 앱입니다.",
         "development_period": {
