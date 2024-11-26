@@ -35,12 +35,12 @@ https://portfolio-peach-eight-19.vercel.app/
 | 기술                 | 기술명                                               | Badge                                                                                                           |
 |:--------------------:|:----------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------:|
 | **프레임워크**       | Vue.js                                               | ![Vue.js](https://img.shields.io/badge/Vue.js-42b883?style=flat-square&logo=vue.js&logoColor=white)             |
+| **정적 타입 검사**   | Typescript                                           | ![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white) |
 | **데이터베이스**     | Google Firebase                                      | ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)       |
 | **배포**             | Vercel                                               | ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=Vercel&logoColor=white)             |
 | **버전 관리**        | GitHub                                               | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white)             |
 | **스타일링**         | SASS                                                 | ![SASS](https://img.shields.io/badge/SASS-CC6699?style=flat-square&logo=sass&logoColor=white)                   |
 | **슬라이더**         | Swiper                                               | ![Swiper](https://img.shields.io/badge/Swiper-6332F6?style=flat-square&logo=swiper&logoColor=white)             |
-| **정적 타입 검사**   | Typescript                                           | ![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white) |
 | **데이터 포맷**      | JSON                                                 | ![JSON](https://img.shields.io/badge/JSON-000000?style=flat-square&logo=json&logoColor=white)                   |
 
 
