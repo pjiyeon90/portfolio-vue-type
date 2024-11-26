@@ -18,7 +18,7 @@
 <br>
 
 ## :zap: 프로젝트 배포 링크
-https://portfolio-peach-eight-19.vercel.app/ 
+https://portfolio-vue-type.vercel.app/
 
 <br />
 
