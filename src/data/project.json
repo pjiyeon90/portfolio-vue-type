@@ -303,7 +303,7 @@
         "project_name": "PORTFOLIO",
         "project_type": "Single Project",
         "project_thumnail": "portfolio_thumnail.png",
-        "project_summary": "본 프로젝트는 개인 포트폴리오 웹사이트로, 기술 스택, 작업한 프로젝트, 경력 등을 소개하고 있습니다.",
+        "project_summary": "본 프로젝트는 반응형으로 작업한 개인 포트폴리오입니다.",
         "development_period": {
           "date": "2024.11.4(월) ~ 2024.11.26(화)",
           "duration_weeks": 3
