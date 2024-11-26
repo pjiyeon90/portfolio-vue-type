@@ -222,8 +222,6 @@ function canvasAni(){
             
             resetCharacters();
 
-
-
             renderBox.querySelector('canvas').addEventListener('wheel',(e)=>{
                 e.stopPropagation();  //다른 이벤트 활성화 방지, 이 이벤트를 우선시 한다.
                 // 캔버스 위에서 휠 작동안됨-> 작동되게 해결

@@ -300,6 +300,102 @@
         "site_url":"https://move-sawing-react.vercel.app/"
       },
       {
+        "project_name": "PORTFOLIO",
+        "project_type": "Single Project",
+        "project_thumnail": "portfolio_thumnail.png",
+        "project_summary": "본 프로젝트는 개인 포트폴리오 웹사이트로, 기술 스택, 작업한 프로젝트, 경력 등을 소개하고 있습니다.",
+        "development_period": {
+          "date": "2024.11.4(월) ~ 2024.11.26(화)",
+          "duration_weeks": 3
+        },
+        "team_composition": [
+          {
+            "name": "박지연",
+            "role": "전체 디자인, JSON 작업, 기능 구현"
+          }
+        ],
+        "development_environment": [
+          "VUE",
+          "TYPESCRIPT",
+          "JAVASCRIPT",
+          "JSON",
+          "SWIPER",
+          "FIREBASE"
+        ],
+        "project_description": {
+          "overview": "본 프로젝트는 프론트엔드 개발자를 꿈꾸는 박지연, 개인의 포트폴리오 웹사이트로, 기술 스택, 작업한 프로젝트, 경력 등을 소개하고 있습니다. 이 웹사이트는 Vue.js,Typescript를 활용하여 제작되었으며, Vercel을 사용하여 배포하였습니다. 디자인은 간결하면서도 동적 사용을 통해 보는 재미를 추구하였고 직관적인 방식으로 사용자의 경험을 중시하며, 반응형 작업을 통해 테블릿, 모바일에서도 최적화되어있어 쉽게 확인할 수 있습니다.",
+          "features": [
+            "flow-txt와 flow-txt-reverse 애니메이션을 사용",
+            "프로젝트 상세 보기 팝업 기능 구현",
+            "탭 버튼을 통해 album과 swiper 2가지 뷰 모드 제공",
+            "isOpen 메서드와 onClick 메서드를 사용하여 아코디언 형식으로 펼쳐지는 기능 제공",
+            "Mateer.js 엔진을 사용해 랜덤 배치된 캐릭터를 튕기게 하는 효과"
+          ],
+          "individual": [
+            {
+              "title": "흐르는 텍스트 애니메이션",
+              "todo":[
+              "흐르는 텍스트를 사용하여 나를 표현하는 단어, 사용할 수 있는 환경들로 나열",
+              "flow-txt와 flow-txt-reverse 애니메이션을 사용하여 텍스트가 일정 속도로 화면을 가로지르는 효과를 구현"
+              ]
+          },
+          {
+            "title": "프로젝트 상세 보기 팝업",
+            "todo": [
+              "프로젝트를 선택시 팝업이 열리며 세부 내용을 확인",
+              "methods: showPopup을 이용해 각 프로젝트는 제목, 기술 스택, 배포 링크, GitHub 링크 등을 포함하며, 프로젝트 상세 정보를 제공하는 팝업이 열리도록 구현"
+            ]
+          },
+          {
+            "title": "탭 기능을 통해 album 형태와 swiper 형태 2가지 뷰 모드",
+            "todo":
+              [
+              "사용자의 프로젝트를 여러 방식(슬라이드, 앨범 형태)으로 보여주는 기능",
+              "리스트 아이템을 컴포넌트화 하여 하나는 스와이퍼 형식으로 볼 수 있으며 하나는 앨범 형식으로 볼 수 있도록 구현"
+            ]
+          },
+          {
+            "title": "아코디언 형식으로 펼쳐지는 섹션 기능",
+            "todo":
+            [
+              "경력 부분 섹션을 아코디언으로 만들어 클릭시 활성화되어 세부 내용 확인 가능",
+              "isOpen 메서드와 onClick 메서드를 사용하여 클릭한 항목의 열림/닫힘 상태를 토글하며, activeIndex를 통해 현재 열려 있는 항목을 관리하도록 구현"
+            ]
+          },
+          {
+            "title": "마우스를 이용해 이모티콘을 튕기게하는 효과",
+            "todo":
+            [
+              "다양한 캐릭터를 화면에 랜덤하게 배치하고 두개의 중심점에 끌어당기는 중력 효과를 적용하는 방식으로 마우스 움직임에 따라 캐릭터들이 튕기는 효과",
+              "Mateer.js 엔진을 사용해 물리적으로 시뮬레이션을 설정하고 캐릭터 배열에 저장되어있는 캐릭터들은 canvas에 렌더링",
+              "getRandomPosition 함수를 사용하여 랜덤하게 배치합니다. MouseConstraint를 이용해 투이기는 효과를 구현"
+            ]
+          }
+        ]
+        },
+        "troubleshooting": [
+          {
+              "title": "캐릭터 튕기기 기능",
+              "problem": "페이지에 들어갔다가 홈으로 이동한 경로에서 canvas 호출이 안되는 문제 발생",
+              "solution": "window에서 addEventListener를 이용해 로드되게 설정, 홈일 경우에만 faceani 호출되고 다른 페이지에서는 호출 안되게 처리 "
+          },
+          {
+              "title":"캐릭터 튕기기 기능" ,
+              "problem": "캔버스 위 휠 작동이 안되는 문제 발생",
+              "solution": "e.stopPropagation();를 통해 다른 이벤트 활성화 빙지 및 휠 이벤트 우선시 되게 처리"
+                 
+            }
+          ],
+          "logo": {
+              "photo": ["portlogo.svg", "favicon-16x16.png"]
+            },
+            "figma": {
+              "scene": ["ocean_logo.svg"]
+            }, 
+        "github_url":"https://github.com/pjiyeon90/portfolio-vue-type",
+        "site_url":"https://portfolio-vue-type.vercel.app/"
+      },
+      {
         "project_name": "NEWS",
         "project_type": "Single Project",
         "project_thumnail": "news_thumnail.png",
