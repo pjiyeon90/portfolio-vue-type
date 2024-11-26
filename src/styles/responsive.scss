@@ -5,14 +5,72 @@
     #memberRenderBox{visibility: hidden;}
 }
 
+@media screen and (min-width: 1280px) and (max-width: 1440px){
+ .home{
+    .s_service{
+        height: auto;
+        .text-wrap{
+            margin-top: 60px;
+        }
+       }
+    .s_interview{
+        height: auto;
+        .text-wrap{
+            margin-top: 60px;
+        }
+        ul{
+            margin-bottom: 60px;
+        }
+    }
+    .s_career{
+        .text-wrap{
+            margin-top: 100px;
+        }
+        ul{
+            gap:15px;
+            margin-bottom: 100px;
+         li{
+            .c_front{
+                transform: translate(88%, 50px) rotate(90deg);
+            }
+            .c_back{
+                width:auto;
+                align-items: start;
+                box-sizing: border-box;
+            }
+         }
+        }
+    }
+  }
+  .s_subscribe{
+    .sub-middle{
+     .text-wrap{
+        h3{font-size: 3.6rem;
+            line-height: 3.8rem;
+        br{display: none;}
+          }
+        span{
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        }
+      form{
+        input{
+            padding: 35px 40px;
+        }
+      }
+    } 
+   
+   }
 
+}
 
-@media screen and (min-width: 761px) and (max-width: 1024px){
+@media screen and (min-width: 761px) and (max-width: 1279px){
     .home{
         box-sizing: border-box;
         .section{
             .text-wrap{
-                margin: 0 auto;
+                margin: 50px auto 0;
                 text-align: center;
                 h5{font-size: 1.5rem; font-weight: 300;}
                 h3{font-size: 3.4rem;
@@ -21,7 +79,7 @@
             }
         }
         .s_cart{
-            height: 40vh;
+            height: 48vh;
             justify-content: center;
             align-items: center;
             padding: 0;
@@ -40,7 +98,7 @@
             }
         }
         .s_service{
-            height: 70vh;
+            height: 80vh;
             .text_wrap{
                 margin: 50px;
                 text-align: center;
@@ -83,7 +141,7 @@
             }
         }
         .s_project{
-            height: 100vh;
+            height: auto;
             .btnsection{
                 display: none;
             }
@@ -93,10 +151,19 @@
                     .swiper{
                         width:100%;
                         .swiper-slide{
-                            width: 100% !important;
                             .list_item{
-                                margin:0 10px 0 0;
-
+                                margin:0 20px;
+                            .list_body{
+                                .list_txt{
+                                    ul{
+                                        li{
+                                            em{
+                                                border-radius: 0;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                             }
                         }
                     }
@@ -104,7 +171,7 @@
             }
         }
         .s_about{
-            height: 60vh;
+            height: 73vh;
             .text-wrap{
                 margin: 50px auto 30px;
                 position: static;
@@ -269,13 +336,13 @@
         } 
     }
     .s_subscribe{
-        height: 52vh;
+        height: 58vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         .sub-middle{
-            padding: 0 30px;
+            padding: 0 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -317,7 +384,7 @@
         box-sizing: border-box;
         .section{
             .text-wrap{
-                margin: 0 auto;
+                margin: 50px auto 0;
                 text-align: center;
                 h5{font-size: 1.3rem; font-weight: 300;}
                 h3{font-size: 3rem;
@@ -326,7 +393,7 @@
             }
         }
         .s_cart{
-            height: 40vh;
+            height: 48vh;
             justify-content: center;
             align-items: center;
             padding: 0;
@@ -345,7 +412,7 @@
             }
         }
         .s_service{
-            height: 70vh;
+            height: 80vh;
             .text_wrap{
                 margin: 50px;
                 text-align: center;
@@ -388,7 +455,7 @@
             }
         }
         .s_project{
-            height: 100vh;
+            height: auto;
             .btnsection{
                 display: none;
             }
@@ -398,10 +465,19 @@
                     .swiper{
                         width:100%;
                         .swiper-slide{
-                            width: 100% !important;
                             .list_item{
-                                margin:0 10px 0 0;
-
+                                margin:0 20px;
+                            .list_body{
+                                .list_txt{
+                                    ul{
+                                        li{
+                                            em{
+                                                border-radius: 0;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                             }
                         }
                     }
@@ -409,7 +485,7 @@
             }
         }
         .s_about{
-            height: 60vh;
+            height: 73vh;
             .text-wrap{
                 margin: 50px auto 30px;
                 position: static;
@@ -529,7 +605,7 @@
         }
        .trigger {
         top: 5%;
-        right: 60px;
+        right: 70px;
         &::after{
             width: 45px;
             height: 45px;
@@ -574,13 +650,13 @@
         } 
     }
     .s_subscribe{
-        height: 52vh;
+        height: 58vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         .sub-middle{
-            padding: 0 30px;
+            padding: 0 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -615,7 +691,7 @@
         }
     }
     footer{
-        height: 15vh;
+        height: 20vh;
         flex-direction: column;
         div{
             width:150px;
@@ -644,7 +720,7 @@
                 }
             }
             .s_cart{
-                height: 40vh;
+                height: 48vh;
                 justify-content: center;
                 align-items: center;
                 padding: 0;
@@ -663,7 +739,7 @@
                 }
             }
             .s_service{
-                height: 70vh;
+                height: 80vh;
                 .text_wrap{
                     margin: 50px;
                     text-align: center;
@@ -716,10 +792,19 @@
                         .swiper{
                             width:100%;
                             .swiper-slide{
-                                width: 100% !important;
                                 .list_item{
-                                    margin:0 10px 0 0;
-
+                                    margin:0 20px;
+                                .list_body{
+                                    .list_txt{
+                                        ul{
+                                            li{
+                                                em{
+                                                    border-radius: 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                                 }
                             }
                         }
@@ -727,7 +812,7 @@
                 }
             }
             .s_about{
-                height: 60vh;
+                height: 73vh;
                 .text-wrap{
                     margin: 50px auto 30px;
                     position: static;
@@ -847,7 +932,7 @@
             }
            .trigger {
             top: 5%;
-            right: 60px;
+            right: 70px;
             &::after{
                 width: 45px;
                 height: 45px;
@@ -892,13 +977,13 @@
             } 
         }
         .s_subscribe{
-            height: 52vh;
+            height: 58vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             .sub-middle{
-                padding: 0 30px;
+                padding: 0 20px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -906,6 +991,7 @@
                     width: 100%;
                     text-align: center;
                     box-sizing: border-box;
+                    margin-bottom: 15px;
                     h3{
                         font-size: 3rem;
                         line-height: 3rem;
@@ -933,7 +1019,7 @@
             }
         }
         footer{
-            height: 15vh;
+            height: 20vh;
             flex-direction: column;
             div{
                 width:150px;

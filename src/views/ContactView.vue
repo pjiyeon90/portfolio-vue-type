@@ -61,6 +61,16 @@
     }
   }
 }
+@media screen and (min-width: 360px) and (max-width: 480px){
+.contact{
+  h3{
+    flex-wrap: wrap;
+    img{display: none;}
+
+  }
+}
+
+    }
 
 
 </style>

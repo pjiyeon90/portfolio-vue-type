@@ -2,7 +2,7 @@
   <div class="home">
    <IntroSection/>
   <div class="section s_cart">
-    <p class="cart_p">어떤 개발자를<i>주문하셨나요?</i> <span> 메뉴에서 골라</span><span>테이크 아웃하세요 !</span> </p>
+    <p class="cart_p">어떤 개발자를 <i>주문하셨나요?</i> <span> 메뉴에서 골라</span><span>테이크 아웃하세요 !</span> </p>
     <figure><img src="../assets/cart.png" alt="움직이는 gif"></figure>
   </div>
   <div class="section s_service">
@@ -43,7 +43,9 @@
     <div class="con_list">
       <div class="list_s" v-if="viewMode === 'swiper'">
         <Swiper ref="{swiperRef}" :slidesPerView="3" :pagination="{
-          clickable: true, }" :navigation="true" :modules="modules" class="mySwiper" >
+          clickable: true, }" :navigation="true" :modules="modules" class="mySwiper"
+          :breakpoints="{360: { slidesPerView: 1 },1027: { slidesPerView: 1 },1028: { slidesPerView: 3 }}"
+          >
           <swiper-slide v-for="(project,i) in projects" :key="i"  >
             <ProjectList :project="project"  @parent="showPopup"/>
           </swiper-slide>
@@ -417,7 +419,7 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;              
   align-items: center;
-  // height: 100vh;
+  height: auto;
   .text-wrap{
     color: white;
     margin: 80px 0 35px;
@@ -479,6 +481,11 @@ export default defineComponent({
             display: inline-block;
             } 
            }
+           .swiper-pagination{
+            bottom: -7px;
+           }
+
+
           }
 
        }

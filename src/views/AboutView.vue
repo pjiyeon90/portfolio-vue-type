@@ -35,7 +35,8 @@
 
 <style lang="scss">
 .about{
-  height: 70vh;
+  height: auto;
+  padding: 50px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,6 +83,15 @@
   
     
   
+}
+@media screen and (min-width: 360px) and (max-width: 1280px){
+ 
+.about_box{
+  ul{
+    margin: 0 30px;
+  }
+}
+
 }
 
 

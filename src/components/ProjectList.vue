@@ -79,8 +79,11 @@ export default defineComponent({
             min-height: 64vh;
             color: var(--serve-color);
             figure{
+              overflow: hidden;
+              box-sizing: content-box;
               img{
-                max-width: 100%;
+                min-width: 100%;
+                height: auto;
               }
             }
             .list_txt{
@@ -130,6 +133,7 @@ export default defineComponent({
                           width: 75%;
                           display: flex;
                           flex-wrap: wrap;
+                          line-height: 1.2rem;
                           span{
                             display: inline-block;
                             &::after{
