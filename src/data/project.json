@@ -387,7 +387,7 @@
             }
           ],
           "logo": {
-              "photo": ["portlogo.svg", "favicon-16x16.png"]
+              "photo": ["portlogo.svg", "favicon-32x32.png"]
             },
             "figma": {
               "scene": ["ocean_logo.svg"]
