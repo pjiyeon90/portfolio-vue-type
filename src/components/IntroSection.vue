@@ -1,5 +1,5 @@
 <template>
-   <div class="contents s_intro">
+   <div class="contents s_intro" s_intro>
     <h2><span v-for="(char, index) in animatedText" :key="index" :style="{ animationDelay: `${index * 0.1}s` }">{{ char }}</span>TAKEOUT?</h2>
     <b>Who ordered a resume?<br> 이력서 시키신 분?</b>
     <div class="introgif">

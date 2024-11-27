@@ -291,7 +291,7 @@
             }
           ],
           "logo": {
-              "photo": ["ocean_logo.svg", "ocean_favicon.png"]
+              "photo": ["sawing_logo.svg", "sawing_favicon.png"]
             },
             "figma": {
               "scene": ["ocean_logo.svg"]
@@ -416,7 +416,8 @@
           "JAVASCRIPT",
           "AXIOS",
           "BOOTSTRAP",
-          "SWIPER"
+          "SWIPER",
+          "POSTMAN"
         ],
         "project_description": {
           "overview": "본 프로젝트는 한화해양생물연구센터 사이트를 리뉴얼한 것으로 해양생물에 대한 정보나 연구 자료, 구조 치료에 대한 정보를 얻을 수 있는 사이트입니다. 상업적으로 만든 사이트가 아닌 만큼 관심도가 낮아 오랫동안 방치, 노후화되고 옛스러운 디자인에 고착되어있어 리뉴얼을 결정하였습니다.정보 전달의 목적이지만 사용자가 사용하기 쉽고 정보를 한눈에 볼 수 있도록 디자인 방향성을 잡고 리뉴얼을 진행하였습니다.",
@@ -477,7 +478,7 @@
           }
         ],
         "logo": {
-            "photo": ["ocean_logo.svg", "ocean_favicon.png"]
+            "photo": ["newslogo.png"]
           },
           "figma": {
             "scene": ["ocean_logo.svg"]

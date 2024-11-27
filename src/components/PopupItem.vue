@@ -287,12 +287,22 @@ export default defineComponent({
             }
             .fourth-sec{
                 h4{
+                   margin-bottom: 20px;
                    &::before{
                     margin-right: 20px;
                     display: inline-block;
                     content:url("../assets/logomade.svg");
                     vertical-align: middle;
                   } 
+                }
+                div{
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    img{
+                        display: inline-block;
+                        margin-right: 30px;
+                    }
                 }
             }
             .fifth-sec{

@@ -28,7 +28,7 @@
       </li>
     </ul>
   </div>
-  <div class="section s_project">
+  <div class="section s_project" id="s_project">
     <div class="text-wrap">
       <h5>주문하신 메뉴 나왔습니다!</h5>
       <h3>PROJECT</h3>
@@ -190,10 +190,10 @@
   </div> <!-- 홈 -->
 
    <!-- popup 부분-->
-   <div class="black-bg" v-if="popup" @click="popup = false">
-    <div class="white-bg">
+   <div class="black-bg" id="black-bg" v-if="popup" @click="$event.target.className === 'black-bg' ? popup = false : ''">
+    <div class="white-bg" @scroll="handleScroll">
       <PopupItem v-if="selectedProject" :project="selectedProject" />
-      <button @click="popup = false" class="detail_xbtn">
+      <button @click="closePopup" class="detail_xbtn">
         <img src="../assets/detail_xbtn.svg" alt="닫기버튼"/>
       </button>
     </div>
@@ -240,6 +240,7 @@ export default defineComponent({
     showPopup(project: any) {
       this.selectedProject = project; // 선택된 프로젝트 데이터 저장
       this.popup = true; // 팝업 열기
+      document.body.style.overflow = 'hidden'; // 팝업 열면 body 스크롤 막기
     },
      // 클릭 시 활성화된 항목을 관리
     onClick(index: number):void {
@@ -250,6 +251,26 @@ export default defineComponent({
         this.activeIndex = index;
       }
     },
+
+     // 스크롤 이벤트 핸들러
+     handleScroll(e: Event) {
+        e.stopPropagation(); // 부모 요소로 스크롤 이벤트 전파를 막음
+      },
+
+      // 팝업 닫을 때 body 스크롤 되돌리기
+    closePopup() {
+      this.popup = false;
+      document.body.style.overflow = ''; // 팝업 닫을 때 body 스크롤 복구
+    },
+
+
+    // // 배경 클릭 시 팝업을 닫는 함수
+    // handleBackgroundClick(event: MouseEvent) {
+    //     // 클릭한 위치가 'black-bg'인 경우에만 팝업을 닫도록 처리
+    //     if (event.target === event.currentTarget) {
+    //       this.closePopup(); // 팝업 닫기
+    //     }
+    //   },
 
     // 호버에서 벗어났을 때 상태를 초기화
     // onLeave() {
@@ -675,7 +696,7 @@ export default defineComponent({
       }
       .c_back{
         background-color: var(--serve-color);
-        width:760px;
+        width:auto;
         height: 100%;
         position: absolute;
         display: flex;
@@ -744,29 +765,30 @@ export default defineComponent({
   left:0;
   z-index: 99;
   padding: 5% 0;
-  .white-bg {
-  overflow-y: auto;
-  overflow-x: hidden;
-  position: relative;
-  margin: 0 auto;
-  width: 80vw;
-  height: 80vh;
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  z-index: 100;
-  }
-  .detail_xbtn {
-  position: absolute;
-  top:6%;
-  right:3%;
-  z-index: 101;
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
- }
+      .white-bg {
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: relative;
+      margin: 0 auto;
+      width: 80vw;
+      height: 80vh;
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      z-index: 100;
+      }
+      .detail_xbtn {
+      position: fixed;
+      top:15%;
+      right:13%;
+      z-index: 105;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+     
+    }
   }
 
 

@@ -14,9 +14,9 @@
       </div>
       <nav class="portmenu" :class="{ active: menuOpen }">
         <ul @click="menuOpen = false">
-          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/" @click="pageName='home'">Home</router-link></li>
           <li><router-link to="/about">About</router-link></li>
-          <li><router-link to="/project">Project</router-link></li>
+          <li ><router-link to="/" @click="pageName='project'">Project</router-link></li>
           <li><router-link to="/contact">Contact</router-link></li>
         </ul>
       </nav>
@@ -55,12 +55,41 @@ export default defineComponent({
       setMenuOpenHandler({ closeMenu });
     };
 
+    const scrollToIntro = () => {
+      const introElement = document.getElementById('intro');
+      if (introElement) {
+        introElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
     return {
       menuOpen,
       toggleMenu,
       closeMenu,
+      scrollToIntro,
     };
   },
+  data() {
+    return {
+      gosection: false,
+      pageName:'home'
+    };
+  },
+ methods: {
+  
+},
+updated() {
+  const element = document.getElementById('s_project');
+  const elHeader = document.querySelector('header');
+  setTimeout(()=>{
+    if(this.pageName=='home') {
+      if(elHeader)elHeader.scrollIntoView({ behavior: 'smooth' });
+    }else{
+      if(element)element.scrollIntoView({ behavior: 'smooth' });
+    }
+  },100)
+},
+
 });
 
 </script>
@@ -198,6 +227,9 @@ header{
     ul{
       li{list-style: none;
         margin-bottom: 30%;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 300;
         a{
           color: white;
           font-size: 1.5rem;
