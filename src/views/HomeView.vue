@@ -190,7 +190,7 @@
   </div> <!-- 홈 -->
 
    <!-- popup 부분-->
-   <div class="black-bg" id="black-bg" v-if="popup" @click="$event.target.className === 'black-bg' ? popup = false : ''">
+   <div class="black-bg" id="black-bg" v-if="popup" @click="handleClick($event)">
     <div class="white-bg" @scroll="handleScroll">
       <PopupItem v-if="selectedProject" :project="selectedProject" />
       <button @click="closePopup" class="detail_xbtn">
@@ -264,13 +264,13 @@ export default defineComponent({
     },
 
 
-    // // 배경 클릭 시 팝업을 닫는 함수
-    // handleBackgroundClick(event: MouseEvent) {
-    //     // 클릭한 위치가 'black-bg'인 경우에만 팝업을 닫도록 처리
-    //     if (event.target === event.currentTarget) {
-    //       this.closePopup(); // 팝업 닫기
-    //     }
-    //   },
+    // 배경 클릭 시 팝업을 닫는 함수
+    handleClick(event: MouseEvent) {
+        // 클릭한 위치가 'black-bg'인 경우에만 팝업을 닫도록 처리
+        if (event.target === event.currentTarget) {
+          this.closePopup(); // 팝업 닫기
+        }
+      },
 
     // 호버에서 벗어났을 때 상태를 초기화
     // onLeave() {

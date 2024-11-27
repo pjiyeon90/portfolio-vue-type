@@ -106,6 +106,7 @@ updated() {
   min-width: 360px;
 }
 body{
+  min-width: 360px;
   margin: 0 auto;
 }
 :root {

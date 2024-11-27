@@ -376,7 +376,26 @@
             }
         }
     }
-
+    //팝업 부분
+    .black-bg{
+        .popup_wrap{
+            padding: 3%;
+            ul{
+                li{ width: 100%;
+                    em{
+                        width: auto;
+                        border-radius: 0;
+                    }
+                    div{
+                        width:100%;
+                        span{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 760px){
@@ -703,6 +722,112 @@
             width: 60%;
             margin-top: 8px;
         }
+    }
+     //팝업 부분
+     .black-bg{
+        .white-bg{
+            .popup_wrap{
+                padding: 3%;
+                h2{
+                  font-size: 1.7rem;  
+                }
+                ul{
+                    margin: 30px 0;
+                    li{
+                        flex-direction: column;
+                        align-items: start;
+                        margin-bottom: 20px;
+                        em{
+                            margin-bottom: 10px;
+                            width: auto;
+                        }
+                        span{
+                            text-align: left;
+                            display: inline-block;
+                            word-break: keep-all;
+                        }
+                        div{
+                            width:100%;
+                            flex-direction: column;
+                            span{
+                                width: 100%;
+                            }
+                        }
+                    &:first-child{
+                        span{
+                            width:100%;
+                        }
+                    }
+                    }
+                }
+                .btn_wrap{
+                    margin-top: 30px;
+                    a{
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        line-height: 1.3rem;
+                        padding: 5px;
+                    }
+                }
+                .team_explain{
+                    margin-top: 50px;
+                    section{
+                        margin-top: 20px;
+                    }
+                    ul{
+                        margin: 0;
+                        li{ margin: 20px 0;
+                            span{
+                                display: none;
+                            }
+                        }
+                    }
+                    .second-sec{
+                        margin-top: 40px;
+                        h4{
+                            flex-wrap: wrap;
+                            span{
+                                margin-left: 0px;
+                            }
+                        }
+                        ul{
+                            li{
+                                margin: 0;
+                                div{
+                                    padding: 10px 0 10px 20px;
+                                }
+                                p{
+                                    margin-left: 10px;
+                                }
+                            }
+                        }
+                    }
+                    .third-sec{
+                        margin-top: 40px;
+                        ul{
+                            li{
+                                margin: 20px 0 0 0;
+                            }
+                        }
+                    }
+                    .fourth-sec{
+                        margin-top: 40px;
+                        div{
+                            flex-wrap: wrap;
+                            img{
+                                margin: 0 30px 20px 0;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        .detail_xbtn{
+            top: 90px;
+            z-index: 999;
+
+        }  
     }
 }
 
@@ -1032,6 +1157,113 @@
                 margin-top: 8px;
             }
         }
+        //팝업 부분
+        .black-bg{
+            .white-bg{
+                .popup_wrap{
+                    padding: 3%;
+                    h2{
+                      font-size: 1.7rem;  
+                    }
+                    ul{
+                        margin: 30px 0;
+                        li{
+                            flex-direction: column;
+                            align-items: start;
+                            margin-bottom: 20px;
+                            em{
+                                margin-bottom: 10px;
+                                width: auto;
+                            }
+                            span{
+                                text-align: left;
+                                display: inline-block;
+                                word-break: keep-all;
+                            }
+                            div{
+                                width:100%;
+                                flex-direction: column;
+                                span{
+                                    width: 100%;
+                                }
+                            }
+                        &:first-child{
+                            span{
+                                width:80%;
+                            }
+                        }
+                        }
+                    }
+                    .btn_wrap{
+                        margin-top: 30px;
+                        a{
+                            justify-content: center;
+                            flex-wrap: wrap;
+                            line-height: 1.3rem;
+                            padding: 5px;
+                        }
+                    }
+                    .team_explain{
+                        margin-top: 50px;
+                        section{
+                            margin-top: 20px;
+                        }
+                        ul{
+                            margin: 0;
+                            li{ margin: 20px 0;
+                                span{
+                                    display: none;
+                                }
+                            }
+                        }
+                        .second-sec{
+                            margin-top: 40px;
+                            h4{
+                                flex-wrap: wrap;
+                                span{
+                                    margin-left: 0px;
+                                }
+                            }
+                            ul{
+                                li{
+                                    margin: 0;
+                                    div{
+                                        padding: 10px 0 10px 20px;
+                                    }
+                                    p{
+                                        margin-left: 10px;
+                                    }
+                                }
+                            }
+                        }
+                        .third-sec{
+                            margin-top: 40px;
+                            ul{
+                                li{
+                                    margin: 20px 0 0 0;
+                                }
+                            }
+                        }
+                        .fourth-sec{
+                            margin-top: 40px;
+                            div{
+                                flex-wrap: wrap;
+                                img{
+                                    margin: 0 30px 20px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+            .detail_xbtn{
+                top: 90px;
+                z-index: 999;
+
+            }  
+        }
+
     }
     
 
