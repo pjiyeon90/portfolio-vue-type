@@ -17,6 +17,7 @@
           <li><router-link to="/" @click="pageName='home'">Home</router-link></li>
           <li><router-link to="/about">About</router-link></li>
           <li ><router-link to="/" @click="pageName='project'">Project</router-link></li>
+          <li ><router-link to="/design">Design products</router-link></li>
           <li><router-link to="/contact">Contact</router-link></li>
         </ul>
       </nav>

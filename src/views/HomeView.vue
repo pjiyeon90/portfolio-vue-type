@@ -2,7 +2,7 @@
   <div class="home">
    <IntroSection/>
   <div class="section s_cart">
-    <p class="cart_p">어떤 인재를 <i>주문하셨나요?</i> <span> 메뉴에서 골라</span><span>테이크 아웃하세요 !</span> </p>
+    <p class="cart_p">어떤 인재를<i>주문하셨나요?</i> <span> 메뉴에서 골라</span><span>테이크 아웃하세요 !</span> </p>
     <figure><img src="../assets/cart.png" alt="움직이는 gif"></figure>
   </div>
   <div class="section s_service">
