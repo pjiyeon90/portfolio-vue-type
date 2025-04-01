@@ -2,7 +2,7 @@
   <div class="home">
    <IntroSection/>
   <div class="section s_cart">
-    <p class="cart_p">어떤 개발자를 <i>주문하셨나요?</i> <span> 메뉴에서 골라</span><span>테이크 아웃하세요 !</span> </p>
+    <p class="cart_p">어떤 인재를 <i>주문하셨나요?</i> <span> 메뉴에서 골라</span><span>테이크 아웃하세요 !</span> </p>
     <figure><img src="../assets/cart.png" alt="움직이는 gif"></figure>
   </div>
   <div class="section s_service">
@@ -66,8 +66,8 @@
       <div class="canvas" id="memberRenderBox">
         <!-- <img src="../assets/about.png" alt="나의 이모지"> -->
       </div>
-      <p>안녕하세요! 생각의 경계를 넘어서는 <strong>유연한 사고</strong>와 <strong>혁신적인 발상</strong>으로 <strong>무한한 가능성</strong>을 만들어내고 싶은 <strong>프론트엔드 개발자 박지연</strong> 입니다.<br>
-         작은 단위의 <Strong>컴포넌트를 재사용</Strong>하고 <Strong>확장성을 고려</Strong>해 개발하는 것을 좋아하며 새롭게 배운 기술을 업무에 적용해 더 나은 서비스를<br>
+      <p>안녕하세요! 생각의 경계를 넘어서는 <strong>유연한 사고</strong>와 <strong>혁신적인 발상</strong>으로 <strong>무한한 가능성</strong>을 만들어내고 싶은 <strong>디자인하는 퍼블리셔 박지연</strong> 입니다.<br>
+         작은 단위의 <Strong>컴포넌트를 재사용</Strong>하고 <Strong>확장성을 고려</Strong>해 작업하는 것을 좋아하며 새롭게 배운 기술을 업무에 적용해 더 나은 서비스를<br>
          구축하는 것을 목표로 정진합니다.
       </p>
       <button @click="goToAbout">더보기</button>
@@ -80,10 +80,9 @@
       </div>
       <ul>
         <li>
-          <h4>Q) 디자이너에서 프론트 엔드로 전향한 이유?</h4>
+          <h4>Q) 디자이너에서 퍼블리셔로 전향한 이유?</h4>
           <p>첫 시작은 퍼블리싱이였습니다.<br>
-               퍼블리싱에 관심이 있어 혼자 독학으로 유튜브를 공부하다 화면을 내가 디자인한데로 구현해내는 것에 매료되었고 더 나아가 개발까지
-               진행한다면 내가 기획한데로 디자인과 기능까지 모두 화면에 출력할 수 있겠다라는 생각에 전향을 결심하고 도전하게 되었습니다.
+               퍼블리싱에 관심이 있어 혼자 독학으로 유튜브를 공부하다 화면을 내가 디자인한데로 구현해내는 것에 매료되었고 더 나아가 개발까지 공부하게 되었습니다.내가 기획한데로 디자인과 기능까지 모두 화면에 출력할 수 있겠다라는 생각에 전향을 결심하고 도전하게 되었습니다.
           </p>
         </li>
         <li>
