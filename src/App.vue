@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { onMounted } from "vue";
 import FooterSection from "@/components/FooterSection.vue";
 import { defineComponent, ref } from "vue";
 import { setMenuOpenHandler } from "@/router";
@@ -52,9 +53,7 @@ export default defineComponent({
 
     };
 
-    const onMounted = () => {
-      setMenuOpenHandler({ closeMenu });
-    };
+    
 
     const scrollToIntro = () => {
       const introElement = document.getElementById('intro');
@@ -62,6 +61,18 @@ export default defineComponent({
         introElement.scrollIntoView({ behavior: 'smooth' });
       }
     };
+
+
+    // onMounted 안에서 한번만 실행, 우클릭 방지
+  onMounted(() => {
+    setMenuOpenHandler({ closeMenu });
+
+    // 우클릭 방지
+    window.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+    });
+  });
+   
 
     return {
       menuOpen,
